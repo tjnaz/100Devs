@@ -142,8 +142,8 @@ table {
  */
 
  *,
- *:before,
- *:after {
+ *::before,
+ *::after {
      -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
      box-sizing: border-box;
@@ -154,6 +154,7 @@ table {
      padding-left: 30px;
      padding-right: 30px;
      width: 960px;
+     /* border: 2px solid black; */
  }
 
 
