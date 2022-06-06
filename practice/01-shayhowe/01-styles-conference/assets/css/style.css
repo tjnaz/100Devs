@@ -141,58 +141,134 @@ table {
     ========================================
  */
 
- *,
- *::before,
- *::after {
-     -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-     box-sizing: border-box;
- }
-
- .container {
-     margin: 0 auto;
-     padding-left: 30px;
-     padding-right: 30px;
-     width: 960px;
-     /* border: 2px solid black; */
- }
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 
- /*
-    ========================================
-    Typography
-    ========================================
- */
+.col-1-3 {
+    width: 33.33%;
+}
 
- h1, h3, h4, h5, p {
-     margin-bottom: 22px;
- }
+.col-2-3 {
+    width: 66.67%;
+}
+
+.col-1-3,
+.col-2-3 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.grid,
+.col-1-3,
+.col-2-3 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container,
+.grid {
+    margin: 0 auto;
+    width: 960px;
+}
+
+.container {
+    padding-right: 30px;
+    padding-left: 30px;
+    /* border: 2px solid black; */
+}
+
+/*
+========================================
+Clearfix
+========================================
+*/
+
+.group::before,
+.group::after {
+    content: "";
+    display: table;
+}
+
+.group::after {
+    clear: both;
+}
+
+.group {
+    clear: both;
+    *zoom: 1;
+}
 
 
- /*
-    ========================================
-    Buttons
-    ========================================
- */
+/*
+========================================
+Typography
+========================================
+*/
 
- .btn {
-     border-radius: 5px;
-     display: inline-block;
-     margin: 0;
- }
-
- .btn-alt {
-     border: 1px solid #dfe2e5;
-     padding: 10px 30px;
- }
+h1, h3, h4, h5, p {
+    margin-bottom: 22px;
+}
 
 
- /*
-    ========================================
-    Home
-    ========================================
- */
+/*
+========================================
+Buttons
+========================================
+*/
 
- .hero {
-     padding: 22px 80px 66px 80px;
- }
+.btn {
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0;
+}
+
+.btn-alt {
+    border: 1px solid #dfe2e5;
+    padding: 10px 30px;
+}
+
+
+/*
+========================================
+Home
+========================================
+*/
+
+.hero {
+    padding: 22px 80px 66px 80px;
+}
+
+
+/*
+========================================
+Primary Header
+========================================
+*/
+
+.logo {
+border-top: 4px solid #648880;
+padding: 40px 0 22px 0;
+float: left;
+}
+
+
+/*
+========================================
+Primary Footer
+========================================
+*/
+
+.primary-footer small{
+    float: left;
+}
+
+.primary-footer {
+    padding-bottom: 44px;
+    padding-top: 44px;
+}
