@@ -183,6 +183,13 @@ table {
     /* border: 2px solid black; */
 }
 
+/* Trying out responsive web design */
+/* @media all and (max-width: 800px) {
+    body {
+        background: red;
+    }
+} */
+
 /*
 ========================================
 Clearfix
@@ -201,7 +208,7 @@ Clearfix
 
 .group {
     clear: both;
-    *zoom: 1;
+    /* zoom: 1; */
 }
 
 
