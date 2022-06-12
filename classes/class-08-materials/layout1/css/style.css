@@ -22,21 +22,43 @@
 /*******************************************/
 
 body {
-
+    /* width: 80%; */
+    /* margin: 0 auto; */
+    /* border: 3px solid black; */
+    /* clear: both; */
 }
 
 
 /******************************************
 /* LAYOUT
 /*******************************************/
-header {
 
+.container {
+    width: fit-content;
+    height: 500px;
+    margin: 0 auto;
+}
+
+header {
+    
 }
 
 footer {
-
+    
 }
+
+nav,
+main,
+aside {
+    width: 33%;
+    float: left;
+}
+
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
+ul {
+    list-style: none;
+}
