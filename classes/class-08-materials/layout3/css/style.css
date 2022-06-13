@@ -29,13 +29,40 @@ body {
 /******************************************
 /* LAYOUT
 /*******************************************/
-header {
-
+header,
+header+section,
+header+section+section,
+header+section+section+section,
+header+section+section+section+section {
+    width: 80%;
+    margin: 10px auto;
 }
 
-footer {
-
+header > * {
+    float: left;
+    width: fit-content;
+    margin: 0px 5px;
 }
+
+li {
+    float: left;
+    width: auto;
+    margin: 0 10px;
+    list-style: none;
+}
+
+header + section > *,
+header+section+section>section,
+header+section+section>section+section>section {
+    float: left;
+    width: 50%;
+}
+
+header+section+section+section+section>* {
+    float: left;
+    width: 33%;
+}
+
 
 /******************************************
 /* ADDITIONAL STYLES
