@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+    max-width: 100vw;
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+    background: #FAE1B1;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: #000;
+}
+
+button {
+    font-size: 112.5%;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.container {
+    max-width: 1080px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+body > * {
+    border: 1px solid white;
+}
+
+section {
+    height: 400px;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+/* *NAVBAR */
+.navbar {
+    height: 50px;
+}
+
+.navbar .container {
+    justify-content: space-between;
+}
+
+/* *HEADER */
+.header {
+    height: 400px;
+}
+
+.header .container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* *SECTION-1: WHY */
+.why .container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* *SECTION-2: CONTACT */
+.contact .container {
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact .container .box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* *SECTION-3: CTA */
+.cta .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* *FOOTER */
+.footer {
+    height: 200px;
+}
+
+.footer .container {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer .container .connect,
+.footer .container .copyright {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer .right,
+.footer .left {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    text-align: left;
+    gap: 5px;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/

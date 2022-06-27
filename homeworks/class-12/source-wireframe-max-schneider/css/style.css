@@ -23,36 +23,11 @@
 
 body {}
 
+
 /******************************************
 /* LAYOUT
 /*******************************************/
-header {
-    width: 80%;
-    height: 40px;
-    margin: 0 auto;
-    background: rgb(105, 117, 136);
-    /* text-align: center; */
-    /* padding: 0 10%; */
-    /* clear: both; */
-}
-
-header nav>* {
-    width: 33.3%;
-    /* padding: 0; */
-    margin: 0px 10px;
-    float: left;
-}
-
-header nav>ul>li {
-    list-style: none;
-    /* margin: 0 auto; */
-    width: 20%;
-    float: left;
-}
-
-header>a {
-    /* float: right; */
-}
+header {}
 
 footer {}
 
