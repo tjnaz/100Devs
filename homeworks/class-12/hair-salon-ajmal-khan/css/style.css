@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+    width: 100vw;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background: #efe;
+    font-size: 100%;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+a:hover {
+    color: coral;
+}
+
+.container {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+button {
+    background: #eee;
+    font-size: 112.5%;
+    padding: 7px 14px;
+    font-weight: bold;
+    color: #222;
+    border: 0;
+    border-radius: 5px;
+    width: 20%;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+/* *NAVBAR */
+.navbar {
+    height: 60px;
+}
+
+.navbar .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* *HEADER */
+.header {
+    height: 500px;
+}
+
+.header .container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
+
+.header .offer {
+    width: 200px;
+    height: 250px;
+    border-radius: 5px;
+    background-color: #222;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.header .offer > * {
+    margin-left: 2rem;
+}
+
+.header .offer button {
+    width: 70%;
+}
+
+/* *SECTION-1: FEATURE */
+.feature {
+    height: 300px;
+}
+
+.feature .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feature .box {
+    width: 20%;
+    text-align: center;
+}
+
+/* *SECTION-2: NEWS */
+.news {
+    height: 300px;
+}
+
+.news .container {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.news .container > * {
+    width: 50%;
+}
+
+.news .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.news button {
+    width: 40%;
+}
+
+/* *SECTION-3: STAFF */
+.staff {
+    height: 300px;
+}
+
+.staff .container {
+    justify-content: center;
+    align-items: center;
+}
+
+.staff .box {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+
+.staff .box .portrait {
+    border: 2px solid #777;
+    height: 100%;
+    width: 80%;
+}
+
+.staff .box .name {
+    width: 50%;
+    background: #222;
+    color: #efe;
+    margin-top: -10px;
+}
+
+/* *SECTION-4: OFFER */
+.offer {
+    height: 300px;
+}
+
+.offer .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.offer .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.offer .left button {
+    width: 80%;
+}
+
+/* *SECTION-5: LOOKBOOK */
+.lookbook {
+    height: 600px;
+}
+
+.lookbook .container {
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.lookbook .square,
+.lookbook .rectangle {
+    border: 2px solid #222;
+}
+
+.square {
+    width: 150px;
+    height: 150px;
+}
+
+.rectangle {
+    width: 150px;
+    height: 300px;
+}
+
+.lookbook .column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
