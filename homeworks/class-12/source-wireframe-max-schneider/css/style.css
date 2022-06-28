@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 /* Box Model Hack */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Clear fix hack */
@@ -21,15 +25,102 @@
 /* BASE STYLES
 /*******************************************/
 
-body {}
+body {
+    width: 100vw;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 100%;
+    background: #f0f0f0;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: darksalmon;
+}
+
+a:hover {
+    color: beige;
+}
+
+button {
+    font-size: 112.5%;
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 0;
+    background: rgb(53, 69, 87);
+    border: 0;
+    color: #f0f0f0;
+}
+
+.container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+}
 
 
 /******************************************
 /* LAYOUT
 /*******************************************/
-header {}
+/* *NAVBAR */
+.navbar {
+    height: 60px;
+}
 
-footer {}
+.navbar .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* *HEADER */
+.header {
+    height: 400px;
+}
+
+.header .container {
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.header .container > * {
+    flex: 1;
+}
+
+.header .container .left > button {
+    margin-bottom: 10px;
+}
+
+/* *SECTION-1: FEATURE */
+.feature {
+    height: 300px;
+}
+
+.feature .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feature .box {
+    width: 20%;
+}
+
+/* *SECTION-2: INFO */
+.info {
+    height: 200px;
+}
+
+.info .container {
+    flex-direction: column;
+    gap: 10px;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
