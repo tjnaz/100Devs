@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+    width: 100vw;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 100%;
+    background: #f0f0f0;
+}
+
+body > * {
+    border: 2px solid black;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+a:hover {
+    color: coral;
+}
+
+.container {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+button {
+    background: orange;
+    font-size: 112.5%;
+    padding: 7px 14px;
+    font-weight: bold;
+    color: #f0f0f0;
+    border: 0;
+    border-radius: 5px;
+    width: 20%;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+/* *NAVBAR */
+.navbar {
+    height: 60px;
+}
+
+.navbar .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar ul {
+    justify-content: flex-end;
+}
+
+.navbar ul li {
+    flex-grow: 0;
+    margin-left: 5px;
+}
+
+/* *HEADER */
+.header {
+    height: 400px;
+}
+
+.header .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .img-header {
+    width: 50%;
+    text-align: center;
+}
+
+.header .sm-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.sm-links a {
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+/* *SECTION-1: ABOUT US */
+.about-us {
+    height: 300px;
+}
+
+.about-us .container {
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-us .img-dessert {
+    width: 40%;
+    text-align: center;
+}
+
+.about-us .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.about-us .right button {
+    width: 20%;
+}
+
+/* *SECTION-2: MENU */
+.menu {
+    height: 600px;
+}
+
+.menu .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu .links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.menu .links a {
+    border-bottom: 2px solid transparent;
+}
+.menu .links a:hover {
+    border-bottom: 2px solid orange;
+}
+
+.menu .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 200px;
+}
+
+.menu .row .box {
+    width: 20%;
+    height: 80%;
+    border: 2px solid #555;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* *SECTION-3: CONTACT */
+.contact {
+    height: 600px;
+}
+
+.contact .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact .opening-hours {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact .img-fruit-video {
+    width: 90%;
+    height: 50%;
+    text-align: center;
+    border: 2px solid #333;
+}
+
+/* *SECTIONN-4: TESTIMONIALS */
+.testimonials {
+    height: 500px;
+}
+
+.testimonials .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.testimonials .container > * {
+    width: 30%;
+}
+
+.testimonials .img-cus-pic {
+    width: 100px;
+    height: 100px;
+    border: 5px solid orange;
+    border-radius: 50%;
+}
+
+footer {}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
