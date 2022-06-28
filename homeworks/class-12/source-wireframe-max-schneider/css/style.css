@@ -125,3 +125,13 @@ button {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
+@media screen and (max-width: 500px) {
+    .container > * {
+        flex-basis: 100%;
+    }
+    .container {
+
+        flex-wrap: wrap;
+    }
+}
