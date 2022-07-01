@@ -1,41 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Blaka&family=Blaka+Hollow&family=DotGothic16&family=Moo+Lah+Lah&family=Rampart+One&family=Roboto:wght@100;300;400;500;700;900&family=Rubik+Bubbles&family=Rubik+Glitch&family=Rubik+Microbe&family=Rubik+Moonrocks&family=Rubik+Puddles&family=Rubik+Wet+Paint&family=Stick&family=Tourney:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,500;1,600;1,700&family=Train+One&family=Yuji+Mai&display=swap');
+
 /* Box Model Hack */
 * {
-     box-sizing: border-box;
+    box-sizing: border-box;
+    /* font-family: 'Anton', sans-serif;
+    font-family: 'Blaka', cursive;
+    font-family: 'Blaka Hollow', cursive;
+    font-family: 'DotGothic16', sans-serif;
+    font-family: 'Moo Lah Lah', cursive;
+    font-family: 'Rampart One', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik Bubbles', cursive;
+    font-family: 'Rubik Glitch', cursive;
+    font-family: 'Rubik Microbe', cursive;
+    font-family: 'Rubik Moonrocks', cursive;
+    font-family: 'Rubik Puddles', cursive;
+    font-family: 'Rubik Wet Paint', cursive;
+    font-family: 'Stick', sans-serif;
+    font-family: 'Tourney', cursive;
+    font-family: 'Train One', cursive;
+    font-family: 'Yuji Mai', serif; */
 }
 
 /* Clear fix hack */
 .clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
 }
 
 .clear {
-	clear: both;
+    clear: both;
 }
 
 /******************************************
 /* BASE STYLES
 /*******************************************/
 
-body {
-
-}
+body {}
 
 
 /******************************************
 /* LAYOUT
 /*******************************************/
-header {
+header {}
 
-}
-
-footer {
-
-}
+footer {}
 
 /******************************************
 /* ADDITIONAL STYLES
