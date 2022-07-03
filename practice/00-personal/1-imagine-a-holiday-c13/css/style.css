@@ -64,13 +64,15 @@ body {
     height: 45px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 10px 20px;
 }
 
 /******************************************
 /* LAYOUT
 /*******************************************/
-.header {
+.header,
+.footer {
     width: 100%;
     height: 10%;
 }
@@ -82,6 +84,7 @@ body {
 
 .section .container {
     justify-content: space-around;
+    border: 0;
 }
 
 .section .box {
@@ -96,7 +99,7 @@ body {
 
 .section .box .suitcase,
 .section .box .cat1,
-.section .box .cat2{
+.section .box .cat2 {
     width: 80%;
     height: 70%;
     /* border: 2px solid burlywood; */
@@ -123,17 +126,16 @@ body {
 }
 
 .outerbox .innerbox {
-    border: 2px solid lawngreen;
+    /* border: 2px solid lawngreen; */
     height: 40%;
     width: 40%;
-
-}
-
-.footer {
-    width: 100%;
-    height: 10%;
+    background: firebrick;
 }
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
+.box.hide {
+    display: none;
+}
