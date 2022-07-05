@@ -1,3 +1,4 @@
+
 document.querySelector('#finalRose').addEventListener('click', hide)
 
 function hide(){
