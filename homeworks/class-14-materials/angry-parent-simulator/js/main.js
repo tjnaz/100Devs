@@ -1,6 +1,9 @@
-document.querySelector('#yell').addEventListener('click', run)
+// document.querySelector('#yell').addEventListener('click', run)
+const names = document.querySelectorAll('button')
 
-function run() {
+Array.from(names).forEach(element => element.addEventListener('click', run))
+
+function run(click) {
     const fName = document.querySelector('#firstName').value
     const fMidName = document.querySelector('#firstMiddle').value
     const lMidName = document.querySelector('#lastMiddle').value
@@ -10,7 +13,14 @@ function run() {
 
     // Add what you should be doing - conditionals go here
 
-    return document.querySelector('#placeToYell').innerText = `${fName} ${fMidName} ${lMidName} ${lName}`
+    const fullName = `${fName} ${fMidName} ${lMidName} ${lName}`
+    const fullNameCap = fullName.toUpperCase()
+    
+    if(click.target.classList.contains('yell')) {
+        return document.querySelector('#placeToYell').innerText = fullNameCap
+    }
+    
+    return document.querySelector('#placeToYell').innerText = fullName
 }
 
 // const synth = window.speechSynthesis;
