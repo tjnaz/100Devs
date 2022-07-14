@@ -25,9 +25,9 @@
 
 const countDown = (num) => {
     // if (num === 0) return
-    // console.log(`first ${num}`)
+    console.log(`first ${num}`)
     num === 1 ? 1 : countDown(num - 1)
-    console.log(`second ${num}`)
+    // console.log(`second ${num}`)
 }
 
 countDown(10)
