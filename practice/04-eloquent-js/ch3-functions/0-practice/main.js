@@ -23,11 +23,13 @@
 
 // * RECURSION * //
 
-const countDown = (num) => {
-    // if (num === 0) return
-    console.log(`first ${num}`)
-    num === 1 ? 1 : countDown(num - 1)
-    // console.log(`second ${num}`)
-}
+// const countDown = (num) => {
+//     // if (num === 0) return
+//     console.log(`first ${num}`)
+//     num === 1 ? 1 : countDown(num - 1)
+//     // console.log(`second ${num}`)
+// }
 
-countDown(10)
+// countDown(10)
+
+// * GROWING FUNCTIONS * //
