@@ -34,7 +34,7 @@
 
 // * GROWING FUNCTIONS * //
 
-// TODO: Need to improve this in a way that it reduces the complexity
+// TODO: Need to improve this in a way that it reduces the
 
 function zeroPad(number, width) {
     let string = String(number)
