@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Blaka&family=Blaka+Hollow&family=DotGothic16&family=Moo+Lah+Lah&family=Rampart+One&family=Roboto:wght@100;300;400;500;700;900&family=Rubik+Bubbles&family=Rubik+Glitch&family=Rubik+Microbe&family=Rubik+Moonrocks&family=Rubik+Puddles&family=Rubik+Wet+Paint&family=Stick&family=Tourney:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,500;1,600;1,700&family=Train+One&family=Yuji+Mai&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Anton&family=Blaka&family=Blaka+Hollow&family=DotGothic16&family=Moo+Lah+Lah&family=Rampart+One&family=Roboto:wght@100;300;400;500;700;900&family=Rubik+Bubbles&family=Rubik+Glitch&family=Rubik+Microbe&family=Rubik+Moonrocks&family=Rubik+Puddles&family=Rubik+Wet+Paint&family=Stick&family=Tourney:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,500;1,600;1,700&family=Train+One&family=Yuji+Mai&display=swap'); */
 
 /* Box Model Hack */
 * {
@@ -130,6 +130,21 @@ body {
     height: 40%;
     width: 40%;
     background: firebrick;
+}
+
+.cat1 .innerbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cat1 .innerbox > * {
+    color: #fff;
+}
+
+.innerbox img {
+    height: auto;
+    width: 100%;
 }
 
 /******************************************
