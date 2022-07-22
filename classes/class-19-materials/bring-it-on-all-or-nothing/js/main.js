@@ -36,7 +36,7 @@
 //     }
 // }
 
-const boolAndString = (b, str) => b ? alert(str) : console.log(str)
+// const boolAndString = (b, str) => b ? alert(str) : console.log(str)
 
 // boolAndString(true, "hakuna matata")
 
