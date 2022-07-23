@@ -17,4 +17,20 @@ let arr = ['I', 'study', 'complex', 'language']
 // nonslicedArr.pop()
 // console.log(nonslicedArr)
 
+// *CONCAT()
+
+let arrayLike = {
+    0: "something",
+    1: "is it becase that was a number?",
+    [Symbol.isConcatSpreadable]: true,
+    length: 3
+}
+
+console.log(arr.concat(arrayLike))
+
 console.log(arr)
+
+let lotr = ["Bilbo", "Gandalf", "Nazgul"]
+lotr.forEach((item, index, array) => {
+    console.log(`${item} is at index ${index} in [${array}]`)
+})
