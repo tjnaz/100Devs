@@ -1,7 +1,8 @@
 let arr = ['I', 'study', 'complex', 'language', 0, 1, 2, 3, 'study', NaN]
+console.log(arr)
 
 
-//! ** ADD/REMOVE ITEMS FROM THE ARRAY ** //
+//! ** ADD/REMOVE ITEMS FROM THE ARRAY ** !//
 
 // *SPLICE()
 // arr.splice(arr.length, 0, 'when', 'the', 'sun', 'rises')
@@ -10,12 +11,12 @@ let arr = ['I', 'study', 'complex', 'language', 0, 1, 2, 3, 'study', NaN]
 // arr.slice(-3,-1)
 // console.log(arr.slice(-3, arr.length))
 
-// !This makes a copy of the array and doesn't affect the original array
+// ^This makes a copy of the array and doesn't affect the original array
 // let slicedArr = arr.slice()
 // slicedArr.pop()
 // console.log(slicedArr)
 
-// !This makes a copy of the array BUT, whatever happens to the copy also applies to the original array
+// ^This makes a copy of the array BUT, whatever happens to the copy also applies to the original array
 // let nonslicedArr = arr
 // nonslicedArr.pop()
 // console.log(nonslicedArr)
@@ -30,20 +31,19 @@ let arrayLike = {
 }
 
 console.log(arr.concat(arrayLike))
-
 console.log(arr)
 
 
-//! ** ITERATE ** //
+//! ** ITERATE ** !//
 
 // *FOREACH()
-let lotr = ["Bilbo", "Gandalf", "Nazgul"]
-lotr.forEach((item, index, array) => {
+// let lotr = ["Bilbo", "Gandalf", "Nazgul"]
+arr.forEach((item, index, array) => {
     console.log(`${item} is at index ${index} in [${array}]`)
 })
 
 
-//! ** SEARCH ARRAY ** //
+//! ** SEARCH ARRAY ** !//
 
 // *INDEXOF() && INCLUDES()
 console.log(arr.indexOf('sutdy')) // returns -1
@@ -75,3 +75,10 @@ console.log(users.findIndex(item => item.id == 3))
 
 // *FILTER()
 console.log(users.filter(item => item.id <= 3))
+
+
+
+//! ** TRANSFORM ARRAY ** !//
+
+// *MAP()
+console.log(arr.map(item => isNumber(item)))
