@@ -81,4 +81,11 @@ console.log(users.filter(item => item.id <= 3))
 //! ** TRANSFORM ARRAY ** !//
 
 // *MAP()
-console.log(arr.map(item => isNumber(item)))
+console.log(arr.map(item => typeof (item) === 'number' ? item * 2 : item))
+
+// *SORT()
+let arr5 = [1, 5, 6, 2, 5]
+console.log(arr5.sort((a, b) => a - b))
+// console.log(a + "<>" + b)
+
+console.log(arr5)
