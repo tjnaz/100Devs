@@ -79,6 +79,7 @@ console.log(users.filter(item => item.id <= 3))
 
 //! ** TRANSFORM ARRAY ** !//
 
+// TODO needs
 // *MAP()
 console.log(arr.map(item => typeof (item) === 'number' ? item * 2 : item))
 
@@ -104,7 +105,7 @@ for (let name of lotrArray) {
 }
 
 // *CODE
-let num = console.log(reverseNum(prompt("Enter a number")))
+// let num = console.log(reverseNum(prompt("Enter a number")))
 
 function reverseNum(num) {
     let numArray = (String(num)).split('')
