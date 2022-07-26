@@ -37,7 +37,6 @@ console.log(arr)
 //! ** ITERATE ** !//
 
 // *FOREACH()
-// let lotr = ["Bilbo", "Gandalf", "Nazgul"]
 arr.forEach((item, index, array) => {
     console.log(`${item} is at index ${index} in [${array}]`)
 })
@@ -89,3 +88,25 @@ console.log(arr5.sort((a, b) => a - b))
 // console.log(a + "<>" + b)
 
 console.log(arr5)
+
+// *REVERSE()
+
+arr5.reverse()
+console.log(arr5)
+
+// *SPLIT() & JOIN()
+let lotr = "Bilbo, Gandalf, Nazgul"
+
+let lotrArray = lotr.split(', ')
+
+for (let name of lotrArray) {
+    console.log(`A message for Mr. ${name}`)
+}
+
+// *CODE
+let num = console.log(reverseNum(prompt("Enter a number")))
+
+function reverseNum(num) {
+    let numArray = (String(num)).split('')
+    return numArray.reverse().join('')
+}
