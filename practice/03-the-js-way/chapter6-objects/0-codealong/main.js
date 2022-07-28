@@ -57,6 +57,8 @@ const boris = {
     // }
 }
 
+boris.strength += 25
+
 // ^I tried creating a separate function for describing a character, instead of repeating the same object "method".
 const describe = (object) => `${object.name} has ${object.health} health and ${object.strength} strength points.`
 
