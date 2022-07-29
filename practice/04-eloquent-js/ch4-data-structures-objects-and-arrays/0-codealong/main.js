@@ -30,30 +30,43 @@ console.log(Object.keys(day1))
 
 console.log(typeof day1.events)
 
-let journal = [
-    {
-        events: ['work', 'touched tree', 'pizza', 'running', 'television'],
-        squirrel: false
-    },
-    {
-        events: ['work', 'ice cream', 'cauliflower', 'lasagna', 'touched tree', 'brushed teeth'],
-        squirrel: false
-    },
-    {
-        events: ['weekend', 'cycling', 'break', 'peanuts', 'beer'],
-        squirrel: true
-    }
-]
+// let journal = [
+//     {
+//         events: ['work', 'touched tree', 'pizza', 'running', 'television'],
+//         squirrel: false
+//     },
+//     {
+//         events: ['work', 'ice cream', 'cauliflower', 'lasagna', 'touched tree', 'brushed teeth'],
+//         squirrel: false
+//     },
+//     {
+//         events: ['weekend', 'cycling', 'break', 'peanuts', 'beer'],
+//         squirrel: true
+//     }
+// ]
+
+// console.log(journal)
+
+// const score = { visitors: 0, home: 0 }
+
+// //// Yep it throws an error
+// // score = {visitors: 1, home: 1}
+
+// // ^This is okay!
+// score.visitors += 1
+// score.home += 4
+
+// console.log(score.visitors, score.home)
+
+
+let journal = []
+
+function addEntry(events, squirrel) {
+    journal.push({ events, squirrel })
+}
+
+addEntry(["work", "touched tree", "pizza", "running", "television"], false)
+addEntry(["work", "ice cream", "cauliflower", "lasagna", "touched tree", "brushed teeth"], false)
+addEntry(["weekend", "cycling", "break", "peanuts", "beer"], true)
 
 console.log(journal)
-
-const score = { visitors: 0, home: 0 }
-
-//// Yep it throws an error
-// score = {visitors: 1, home: 1}
-
-// ^This is okay!
-score.visitors += 1
-score.home += 4
-
-console.log(score.visitors, score.home)
