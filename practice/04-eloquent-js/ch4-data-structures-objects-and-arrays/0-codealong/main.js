@@ -1,4 +1,4 @@
-let arr = [1, 2, 3, 4, 5]
+let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 // console.log(arr["length"])
 // console.log(arr.length)
@@ -164,12 +164,20 @@ let JOURNAL = [
 
 // ** COMPUTING CORRELATION ** //
 
-function phi(table) {
-    return (table[3] * table[0] - table[2] * table[1]) /
-        Math.sqrt((table[2] + table[3]) *
-            (table[0] + table[1]) *
-            (table[1] + table[3]) *
-            (table[0] + table[2]))
+// function phi(table) {
+//     return (table[3] * table[0] - table[2] * table[1]) /
+//         Math.sqrt((table[2] + table[3]) *
+//             (table[0] + table[1]) *
+//             (table[1] + table[3]) *
+//             (table[0] + table[2]))
+// }
+
+function phi([n00, n01, n10, n11]) {
+    return ((n11 * n00) - (n10 * n01)) /
+        Math.sqrt((n10 + n11) *
+            (n00 + n01) *
+            (n01 + n11) *
+            (n00 + n10))
 }
 
 // console.log(phi([76, 9, 4, 1]))
@@ -191,7 +199,7 @@ function tableFor(event, journal) {
     return table
 }
 
-let correlation = tableFor('pizza', JOURNAL)
+// let correlation = tableFor('pizza', JOURNAL)
 // console.log(correlation)
 // console.log(phi(correlation))
 
@@ -204,9 +212,9 @@ let correlation = tableFor('pizza', JOURNAL)
 
 function journalEvents(journal) {
     let events = []
-    for(let entry of journal) {
-        for(let event of entry.events) {
-            if(!events.includes(event)){
+    for (let entry of journal) {
+        for (let event of entry.events) {
+            if (!events.includes(event)) {
                 events.push(event)
             }
         }
@@ -217,6 +225,38 @@ function journalEvents(journal) {
 
 console.log(journalEvents(JOURNAL))
 
-for(let event of journalEvents(JOURNAL)) {
-    console.log(`${event}: ${phi(tableFor(event, JOURNAL))}`)
+for (let event of journalEvents(JOURNAL)) {
+    let correlation = phi(tableFor(event, JOURNAL))
+    if (correlation > 0.1 || correlation < -0.1) {
+        console.log(`${event}: ${correlation}`)
+    }
 }
+
+for (let entry of JOURNAL) {
+    if (entry.events.includes('peanuts') && !entry.events.includes('brushed teeth')) {
+        entry.events.push('peanut teeth')
+    }
+}
+
+// ^ So Jacques turns into a squirrel only on the days he eats penuts but doesn't brush his teeth
+console.log(`PHI Value for Peanut Teeth: ${phi(tableFor('peanut teeth', JOURNAL))}`)
+
+function remove(array, index) {
+    return array.slice(0, index).concat(array.slice(index + 1))
+}
+
+console.log(remove(arr, 8))
+
+// ** REST PARAMETERS ** //
+let word = ['never', 'fully']
+console.log('will', ...word, 'recover')
+
+let {name} = {name: 'Aleena', age: 1}
+console.log(name)
+
+
+// ** JSON ** //
+let string = JSON.stringify({squirrel: false, events: ['weekend', 'writing']})
+
+console.log(string)
+console.log(JSON.parse(string).events)
