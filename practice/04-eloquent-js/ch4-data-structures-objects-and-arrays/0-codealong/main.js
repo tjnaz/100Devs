@@ -181,16 +181,42 @@ function tableFor(event, journal) {
         let entry = journal[i], index = 0
         if (entry.events.includes(event)) {
             index += 1
-            console.log(`entry.event.includes(event): ${index}`)
+            // console.log(`entry.event.includes(event): ${index}`)
         }
         if (entry.squirrel) index += 2
-        console.log(`entry.squirel: ${index}`)
+        // console.log(`entry.squirel: ${index}`)
         table[index] += 1
-        console.log(`table[index]: ${table[index]}`)
+        // console.log(`table[index]: ${table[index]}`)
     }
     return table
 }
 
 let correlation = tableFor('pizza', JOURNAL)
-console.log(correlation)
-console.log(phi(correlation))
+// console.log(correlation)
+// console.log(phi(correlation))
+
+// let day = 1
+
+// for(let entry of JOURNAL) {
+//     console.log(`${day}: ${entry.events.length}: ${entry.events} events.`)
+//     day++
+// }
+
+function journalEvents(journal) {
+    let events = []
+    for(let entry of journal) {
+        for(let event of entry.events) {
+            if(!events.includes(event)){
+                events.push(event)
+            }
+        }
+    }
+
+    return events
+}
+
+console.log(journalEvents(JOURNAL))
+
+for(let event of journalEvents(JOURNAL)) {
+    console.log(`${event}: ${phi(tableFor(event, JOURNAL))}`)
+}
