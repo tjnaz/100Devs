@@ -1,11 +1,24 @@
 let numbers = []
 
-function range(startNum, endNum, step = 1) {
-    if (step < 0) {
+function range(startNum, endNum, step) {
+    if (endNum < startNum) {
+
+        if(!step) {
+            step = -1
+        }
+
+        if(step >= 0) {
+            step *= -1
+        }
+
         for (let i = startNum; i >= endNum; i += step) {
             numbers.push(i)
         }
     } else {
+        if(!step) {
+            step = 1
+        }
+
         for (let i = startNum; i <= endNum; i += step) {
             numbers.push(i)
         }
@@ -23,4 +36,4 @@ function sum(number) {
 
 
 // console.log(sum(range(1, 15)))
-console.log(range(10, 2, -2))
+console.log(range(20, 15, 1.5))
