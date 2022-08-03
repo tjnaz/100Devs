@@ -17,6 +17,17 @@ console.log(divideNum(6, 3, 5))
 
 
 // Create a function that takes in 1 number. Console log the cube root of the number. Call the function.
+
+// ** POLYFILL OF MATH.CBRT FUNCTION ** //
+// if (!Math.cbrt) {
+//     Math.cbrt = (function (pow) {
+//         return function cbrt(x) {
+//             // ensure negative numbers remain negative:
+//             return x < 0 ? -pow(-x, 1 / 3) : pow(x, 1 / 3);
+//         };
+//     })(Math.pow); // localize Math.pow to increase efficiency
+// }
+
 function cubeRoot(n1) {
     return Math.cbrt(n1)
 }
@@ -42,11 +53,14 @@ console.log(isSummer('August'))
 //Create a function that takes in a number. Console log every number from 1 to that number while skipping multiples of 5.
 function skipFive(n1) {
     for (let i = 1; i <= n1; i++) {
-        if (i === 5) {
-            console.log()
-        } else {
+        if (i % 5 !== 0) {
             console.log(i)
         }
+        // if (i === 5) {
+        //     console.log()
+        // } else {
+        //     console.log(i)
+        // }
     }
 }
 
