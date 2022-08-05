@@ -1,6 +1,7 @@
 let user = {
     name: 'Adam',
     age: 30,
+    isAdmin: true,
 }
 
 user['like birds'] = true
@@ -16,9 +17,15 @@ function addUser(name, age) {
     return { name: name, age: age, }
 }
 
-user = addUser('John', '23')
+// user = addUser('John', '23')
 
-console.log(user.name)
+// console.log(user.name)
 
 // ** IN OPERATOR ** //
-console.log("age" in user)
+// console.log("age" in user)
+
+// ** FOR..IN LOOP ** //
+
+for(let key in user) {
+    console.log(`${key}: ${user[key]}`)
+}
