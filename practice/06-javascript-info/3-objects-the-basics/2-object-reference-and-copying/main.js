@@ -27,3 +27,14 @@ for (let key in user2) {
 clone.name = "Pete"; // changed the data in it
 
 alert(user2.name); // still John in the original object
+
+
+let user3 = { name: "John" };
+
+let permissions1 = { canView: true };
+let permissions2 = { canEdit: true };
+
+// copies all properties from permissions1 and permissions2 into user
+Object.assign(user3, permissions1, permissions2);
+
+// now user = { name: "John", canView: true, canEdit: true }
