@@ -41,3 +41,13 @@ let permissions2 = { canEdit: true }
 Object.assign(user3, permissions1, permissions2)
 
 // now user = { name: "John", canView: true, canEdit: true }
+
+const user4 = {
+    name: "John"
+};
+
+// (*)
+user.name = "Pete";
+
+// Pete
+alert(user.name);
