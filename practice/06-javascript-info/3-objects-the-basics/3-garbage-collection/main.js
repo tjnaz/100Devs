@@ -11,5 +11,5 @@ function marry(man, woman) {
 let family = marry({
     name: "John"
 }, {
-    name: "Ann"
+    name: "Ann-great"
 })
