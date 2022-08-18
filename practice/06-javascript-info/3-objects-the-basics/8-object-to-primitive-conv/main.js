@@ -12,3 +12,24 @@ let user = {
 alert(user); // hint: string -> {name: "John"}
 alert(+user); // hint: number -> 1000
 alert(user + 500); // hint: default -> 1500
+
+
+let user2 = {
+    name: "John",
+    money: 1000,
+
+    // for hint="string"
+    toString() {
+        return `{name: "${this.name}"}`;
+    },
+
+    // for hint="number" or "default"
+    valueOf() {
+        return this.money;
+    }
+
+};
+
+alert(user2); // toString -> {name: "John"}
+alert(+user2); // valueOf -> 1000
+alert(user2 + 500); // valueOf -> 1500
