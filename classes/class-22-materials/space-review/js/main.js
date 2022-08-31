@@ -9,8 +9,8 @@ let sum = num.reduce((total, item) => (total + item), 0)
 //Create a function that takes in an array of numbers
 //Return a new array of numbers that is every original number squared
 function squareNum(arr) {
-    let newArray = arr.map((item) => item ** 2)
-    return newArray
+    return arr.map((item) => item ** 2)
+
 }
 
 // console.log(squareNum(num))
@@ -18,8 +18,7 @@ function squareNum(arr) {
 //Create a function that takes string
 //Print the reverse of that string to the console
 function reverseArray(arr) {
-    let reversedArray = arr.reverse()
-    return reversedArray
+    return arr.reverse()
 }
 
 
