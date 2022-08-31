@@ -20,12 +20,12 @@ const arr = [1, 2, 3, 4, 5, 6, 7]
 // console.log(squareArr(arr))
 
 // ^Leon's solution
-let squareArr = nums => nums.map(num => num * num)
-console.log(squareArr(arr))
+// let squareArr = nums => nums.map(num => num * num)
+// console.log(squareArr(arr))
 
 //Create a function that takes string
 //Print the reverse of that string to the console
-const str = 'barnaby'
+const str = 'racecar'
 
 function reverseString(string) {
     return string.split('').reverse().join('')
@@ -35,15 +35,20 @@ function reverseString(string) {
 //Create a function that takes in a string
 //Alert if the string is a palindrome or not
 
-function isPalindrome(string) {
-    const reversedString = string.split('').reverse().join('')
+// ^My solution
+// function isPalindrome(string) {
+//     const reversedString = string.split('').reverse().join('')
 
-    for (let i = 0; i < string.length; i++) {
-        if (string[i] !== reversedString[i]) {
-            return false
-        }
-    }
-    return true
-}
+//     for (let i = 0; i < string.length; i++) {
+//         if (string[i] !== reversedString[i]) {
+//             return false
+//         }
+//     }
+//     return true
+// }
 
-// console.log(isPalindrome(str))
+// ^Leon's solution
+// const isPalindrome = str => alert(str === str.split('').reverse().join(''))
+// const isPalindrome2 = str => alert(str === reverseString(str))
+
+// console.log(isPalindrome2(str))
