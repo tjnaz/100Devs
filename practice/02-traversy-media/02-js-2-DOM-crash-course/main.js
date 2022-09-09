@@ -51,7 +51,11 @@ const newDivText = document.createTextNode('Hello, world!')
 // *Add text to the div
 newDiv.appendChild(newDivText)
 
-console.log(newDiv.textContent)
+// console.log(newDiv.textContent)
 
 
 // ^ CLASS 03 ^ //
+
+function testF(e) {
+    console.log(e.target)
+}
