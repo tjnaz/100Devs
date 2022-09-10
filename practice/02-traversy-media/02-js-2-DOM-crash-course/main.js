@@ -38,24 +38,24 @@
 
 // *Create a div
 
-const newDiv = document.createElement('div')
-newDiv.className = 'testClass'
-newDiv.id = 'testId'
+// const newDiv = document.createElement('div')
+// newDiv.className = 'testClass'
+// newDiv.id = 'testId'
 
 // *Set attribute
-newDiv.setAttribute('title', 'Test Title attribute')
+// newDiv.setAttribute('title', 'Test Title attribute')
 
 // *Create text node
-const newDivText = document.createTextNode('Hello, world!')
+// const newDivText = document.createTextNode('Hello, world!')
 
 // *Add text to the div
-newDiv.appendChild(newDivText)
+// newDiv.appendChild(newDivText)
 
 // console.log(newDiv.textContent)
 
 
 // ^ CLASS 03 ^ //
 
-function testF(e) {
-    console.log(e.target)
+function testF() {
+    return console.log('test onclick')
 }
