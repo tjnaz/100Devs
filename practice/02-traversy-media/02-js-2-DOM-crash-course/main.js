@@ -50,12 +50,16 @@
 
 // *Add text to the div
 // newDiv.appendChild(newDivText)
-
 // console.log(newDiv.textContent)
+
 
 
 // ^ CLASS 03 ^ //
 
-function testF() {
-    return console.log('test onclick')
+const button = document.getElementById('button').addEventListener('click', buttonClick)
+
+function buttonClick(e) {
+    document.getElementById('header-title').textContent = 'Changed!'
+    document.querySelector('#main').style.backgroundColor = '#f4f4f4'
+    // console.log(e.target)
 }
