@@ -62,4 +62,15 @@ function buttonClick(e) {
     document.getElementById('header-title').textContent = 'Changed!'
     document.querySelector('#main').style.backgroundColor = '#f4f4f4'
     // console.log(e.target)
+
+    console.log(e.clientX)
+    console.log(e.clientY)
+
+    console.log(e.offsetX)
+    console.log(e.offsetY)
+
+    console.log(e.altKey)
+    console.log(e.ctrlKey)
+    console.log(e.shiftKey)
+    
 }
