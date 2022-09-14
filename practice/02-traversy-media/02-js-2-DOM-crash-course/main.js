@@ -56,11 +56,11 @@
 
 // ^ CLASS 03 ^ //
 
-const button = document.getElementById('button').addEventListener('click', buttonClick)
+const button = document.getElementById('button').addEventListener('click', runEvent)
 
-function buttonClick(e) {
-    document.getElementById('header-title').textContent = 'Changed!'
-    document.querySelector('#main').style.backgroundColor = '#f4f4f4'
+// function buttonClick(e) {
+    // document.getElementById('header-title').textContent = 'Changed!'
+    // document.querySelector('#main').style.backgroundColor = '#f4f4f4'
     // console.log(e.target)
 
     // console.log(e.clientX)
@@ -71,6 +71,9 @@ function buttonClick(e) {
 
     // console.log(e.altKey)
     // console.log(e.ctrlKey)
-    // console.log(e.shiftKey)
-    
+    // console.log(e.shiftKey)   
+// }
+
+function runEvent(e) {
+    console.log(`Event Type: ${e.type}`)
 }
