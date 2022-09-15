@@ -58,6 +58,8 @@
 
 const button = document.getElementById('button').addEventListener('click', runEvent)
 
+const box = document.querySelector('#box')
+
 // function buttonClick(e) {
     // document.getElementById('header-title').textContent = 'Changed!'
     // document.querySelector('#main').style.backgroundColor = '#f4f4f4'
