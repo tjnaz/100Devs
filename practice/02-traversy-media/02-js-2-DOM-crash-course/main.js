@@ -56,26 +56,33 @@
 
 // ^ CLASS 03 ^ //
 
-const button = document.getElementById('button').addEventListener('click', runEvent)
-
-const box = document.querySelector('#box')
-
+// const button = document.querySelector('#button')
+// button.addEventListener('click', buttonClick)
 // function buttonClick(e) {
-    // document.getElementById('header-title').textContent = 'Changed!'
-    // document.querySelector('#main').style.backgroundColor = '#f4f4f4'
-    // console.log(e.target)
+// document.getElementById('header-title').textContent = 'Changed!'
+// document.querySelector('#main').style.backgroundColor = '#f4f4f4'
+// console.log(e.target)
 
-    // console.log(e.clientX)
-    // console.log(e.clientY)
+// console.log(e.clientX)
+// console.log(e.clientY)
 
-    // console.log(e.offsetX)
-    // console.log(e.offsetY)
+// console.log(e.offsetX)
+// console.log(e.offsetY)
 
-    // console.log(e.altKey)
-    // console.log(e.ctrlKey)
-    // console.log(e.shiftKey)   
+// console.log(e.altKey)
+// console.log(e.ctrlKey)
+// console.log(e.shiftKey)   
 // }
 
-function runEvent(e) {
-    console.log(`Event Type: ${e.type}`)
+const box = document.querySelector('#box')
+box.addEventListener('mouseenter', mouseEnter)
+box.addEventListener('mouseleave', mouseLeave)
+
+function mouseEnter(e) {
+    // console.log(`Event Type: ${e.type}`)
+    document.querySelector('body').style.background = '#000'
+}
+
+function mouseLeave(e) {
+    document.querySelector('body').style.background = '#fff'
 }
