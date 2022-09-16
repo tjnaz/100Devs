@@ -112,7 +112,6 @@
 
 let itemInput = document.querySelector('#item')
 // const itemInput = document.querySelector('#filter')
-let form = document.querySelector('form')
 
 // itemInput.addEventListener('keyup', showInput)
 
@@ -123,8 +122,18 @@ let form = document.querySelector('form')
 // *Copy, cut, & paste
 // itemInput.addEventListener('copy', showInput)
 
+// *Change event
+// let select = document.querySelector('select')
+// select.addEventListener('change', showInput)
+// select.addEventListener('input', showInput)
+
+// *Submit event
+let form = document.querySelector('form')
+form.addEventListener('submit', showInput)
 
 function showInput(e) {
+    e.preventDefault()
     console.log(`Type: ${e.type}`)
+    // console.log(`Type: ${e.target.value}`)
     // document.querySelector('#output').innerText = `${e.target.value}`
 }
