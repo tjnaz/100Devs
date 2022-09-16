@@ -56,6 +56,8 @@
 
 // ^ CLASS 03 ^ //
 
+// *Events
+
 // const button = document.querySelector('#button')
 // button.addEventListener('click', buttonClick)
 // function buttonClick(e) {
@@ -75,14 +77,36 @@
 // }
 
 const box = document.querySelector('#box')
-box.addEventListener('mouseenter', mouseEnter)
-box.addEventListener('mouseleave', mouseLeave)
 
-function mouseEnter(e) {
-    // console.log(`Event Type: ${e.type}`)
-    document.querySelector('body').style.background = '#000'
-}
+// box.addEventListener('mousedown', mouseEnter)
+// box.addEventListener('mouseup', mouseLeave)
+// box.addEventListener('mouseenter', mouseEnter)
+// box.addEventListener('mouseleave', mouseLeave)
+// box.addEventListener('mouseover', mouseEnter)
+// box.addEventListener('mouseout', mouseLeave)
 
-function mouseLeave(e) {
-    document.querySelector('body').style.background = '#fff'
-}
+// function mouseEnter(e) {
+// console.log(`Event Type: ${e.type}`)
+// document.querySelector('body').style.background = '#000'
+// }
+
+// function mouseLeave(e) {
+//     document.querySelector('body').style.background = '#fff'
+// }
+
+// *Mouse Move
+
+// box.addEventListener('mousemove', mouseMove)
+
+// function mouseMove(e) {
+//     let red = e.offsetX
+//     let blue = e.offsetY
+//     let green = (red + blue) / 2
+
+//     box.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`
+//     document.body.style.backgroundColor = `rgb(${blue}, ${red}, ${green})`   
+// }
+
+// *Input
+
+const itemInput = document.querySelector('input[type="text"]')
