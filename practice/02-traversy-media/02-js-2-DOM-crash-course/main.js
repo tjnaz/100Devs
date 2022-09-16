@@ -76,7 +76,7 @@
 // console.log(e.shiftKey)   
 // }
 
-const box = document.querySelector('#box')
+// const box = document.querySelector('#box')
 
 // box.addEventListener('mousedown', mouseEnter)
 // box.addEventListener('mouseup', mouseLeave)
@@ -103,10 +103,28 @@ const box = document.querySelector('#box')
 //     let blue = e.offsetY
 //     let green = (red + blue) / 2
 
+//     document.querySelector('#output').innerText = `Red: ${red}, Blue: ${blue}, Green: ${green}`
 //     box.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`
-//     document.body.style.backgroundColor = `rgb(${blue}, ${red}, ${green})`   
+//     document.body.style.backgroundColor = `rgb(${blue}, ${red}, ${green})`
 // }
 
 // *Input
 
-const itemInput = document.querySelector('input[type="text"]')
+let itemInput = document.querySelector('#item')
+// const itemInput = document.querySelector('#filter')
+let form = document.querySelector('form')
+
+// itemInput.addEventListener('keyup', showInput)
+
+// *Focus & Blur
+// itemInput.addEventListener('focus', showInput)
+// itemInput.addEventListener('blur', showInput)
+
+// *Copy, cut, & paste
+// itemInput.addEventListener('copy', showInput)
+
+
+function showInput(e) {
+    console.log(`Type: ${e.type}`)
+    // document.querySelector('#output').innerText = `${e.target.value}`
+}
