@@ -110,7 +110,7 @@
 
 // *Input
 
-let itemInput = document.querySelector('#item')
+// let itemInput = document.querySelector('#item')
 // const itemInput = document.querySelector('#filter')
 
 // itemInput.addEventListener('keyup', showInput)
@@ -128,12 +128,49 @@ let itemInput = document.querySelector('#item')
 // select.addEventListener('input', showInput)
 
 // *Submit event
-let form = document.querySelector('form')
-form.addEventListener('submit', showInput)
+// let form = document.querySelector('form')
+// form.addEventListener('submit', showInput)
 
-function showInput(e) {
-    e.preventDefault()
-    console.log(`Type: ${e.type}`)
-    // console.log(`Type: ${e.target.value}`)
-    // document.querySelector('#output').innerText = `${e.target.value}`
+// function showInput(e) {
+//     e.preventDefault()
+// console.log(`Type: ${e.type}`)
+// console.log(`Type: ${e.target.value}`)
+// document.querySelector('#output').innerText = `${e.target.value}`
+// }
+
+// ^ CLASS 04 ^ //
+
+let itemList = document.querySelector('#items');
+let form = document.querySelector('#addForm');
+form.addEventListener('submit', addItem);
+itemList.addEventListener('click', deleteItem)
+
+function addItem(e) {
+    e.preventDefault();
+
+    // Capture the input
+    if(!document.querySelector('#item').value) return;
+    let newItem = document.createTextNode(document.querySelector('#item').value);
+    // console.log(document.querySelector('#item').value)
+
+    // Adding the input as a list
+    let li = document.createElement('li');
+    li.className = 'list-group-item';
+    li.appendChild(newItem);
+
+    // Add the delete button to the newly added list item
+    let deleteButton = document.createElement('button');
+    deleteButton.className = 'btn btn-danger btn-sm float-right delete';
+    deleteButton.appendChild(document.createTextNode('X'))
+    li.appendChild(deleteButton);
+
+    itemList.appendChild(li);
+    document.querySelector('#item').value = ''
+}
+
+function deleteItem(e) {
+    if (e.target.classList.contains('delete')) {
+        let li = e.target.parentElement;
+        itemList.removeChild(li);
+    }
 }
