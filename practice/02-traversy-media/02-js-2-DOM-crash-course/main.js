@@ -142,14 +142,16 @@
 
 let itemList = document.querySelector('#items');
 let form = document.querySelector('#addForm');
+let search = document.querySelector('#filter')
 form.addEventListener('submit', addItem);
-itemList.addEventListener('click', deleteItem)
+itemList.addEventListener('click', deleteItem);
+search.addEventListener('keyup', filterItems);
 
 function addItem(e) {
     e.preventDefault();
 
     // Capture the input
-    if(!document.querySelector('#item').value) return;
+    if (!document.querySelector('#item').value) return;
     let newItem = document.createTextNode(document.querySelector('#item').value);
     // console.log(document.querySelector('#item').value)
 
@@ -161,16 +163,29 @@ function addItem(e) {
     // Add the delete button to the newly added list item
     let deleteButton = document.createElement('button');
     deleteButton.className = 'btn btn-danger btn-sm float-right delete';
-    deleteButton.appendChild(document.createTextNode('X'))
+    deleteButton.appendChild(document.createTextNode('X'));
     li.appendChild(deleteButton);
 
     itemList.appendChild(li);
     document.querySelector('#item').value = ''
-}
+};
 
 function deleteItem(e) {
     if (e.target.classList.contains('delete')) {
         let li = e.target.parentElement;
         itemList.removeChild(li);
-    }
-}
+    };
+};
+
+function filterItems(e) {
+    // Capture the input
+    let text = e.target.value.toLowerCase();
+    let items = itemList.querySelectorAll('li');
+
+    items.forEach(item => {
+        let itemName = item.firstChild.textContent;
+        (itemName.toLowerCase().indexOf(text)) != -1
+            ? item.style.display = 'block'
+            : item.style.display = 'none';
+    });
+};
