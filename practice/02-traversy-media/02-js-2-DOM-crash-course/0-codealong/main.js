@@ -19,7 +19,6 @@
 // console.log(li)
 // li[0].style.backgroundColor = '#f5f5f5'
 
-
 // *querySelector & querySelectorAll
 
 // const firstLi = document.querySelector('.list-group-item:nth-child(1)')
@@ -30,7 +29,6 @@
 // const items = document.querySelectorAll(".list-group-item")
 
 // items.forEach(item => item.style.backgroundColor = '#f4f4f4')
-
 
 // ^ CLASS 02 ^ //
 
@@ -52,8 +50,6 @@
 // newDiv.appendChild(newDivText)
 // console.log(newDiv.textContent)
 
-
-
 // ^ CLASS 03 ^ //
 
 // *Events
@@ -73,7 +69,7 @@
 
 // console.log(e.altKey)
 // console.log(e.ctrlKey)
-// console.log(e.shiftKey)   
+// console.log(e.shiftKey)
 // }
 
 // const box = document.querySelector('#box')
@@ -140,52 +136,54 @@
 
 // ^ CLASS 04 ^ //
 
-let itemList = document.querySelector('#items');
-let form = document.querySelector('#addForm');
-let search = document.querySelector('#filter')
-form.addEventListener('submit', addItem);
-itemList.addEventListener('click', deleteItem);
-search.addEventListener('keyup', filterItems);
+let itemList = document.querySelector("#items");
+let form = document.querySelector("#addForm");
+let search = document.querySelector("#filter");
+form.addEventListener("submit", addItem);
+itemList.addEventListener("click", deleteItem);
+search.addEventListener("keyup", filterItems);
 
 function addItem(e) {
     e.preventDefault();
 
     // Capture the input
-    if (!document.querySelector('#item').value) return;
-    let newItem = document.createTextNode(document.querySelector('#item').value);
+    if (!document.querySelector("#item").value) return;
+    let newItem = document.createTextNode(
+        document.querySelector("#item").value
+    );
     // console.log(document.querySelector('#item').value)
 
     // Adding the input as a list
-    let li = document.createElement('li');
-    li.className = 'list-group-item';
+    let li = document.createElement("li");
+    li.className = "list-group-item";
     li.appendChild(newItem);
 
     // Add the delete button to the newly added list item
-    let deleteButton = document.createElement('button');
-    deleteButton.className = 'btn btn-danger btn-sm float-right delete';
-    deleteButton.appendChild(document.createTextNode('X'));
+    let deleteButton = document.createElement("button");
+    deleteButton.className = "btn btn-danger btn-sm float-right delete";
+    deleteButton.appendChild(document.createTextNode("X"));
     li.appendChild(deleteButton);
 
     itemList.appendChild(li);
-    document.querySelector('#item').value = ''
-};
+    document.querySelector("#item").value = "";
+}
 
 function deleteItem(e) {
-    if (e.target.classList.contains('delete')) {
+    if (e.target.classList.contains("delete")) {
         let li = e.target.parentElement;
         itemList.removeChild(li);
-    };
-};
+    }
+}
 
 function filterItems(e) {
     // Capture the input
     let text = e.target.value.toLowerCase();
-    let items = itemList.querySelectorAll('li');
+    let items = itemList.querySelectorAll("li");
 
-    items.forEach(item => {
+    items.forEach((item) => {
         let itemName = item.firstChild.textContent;
-        (itemName.toLowerCase().indexOf(text)) != -1
-            ? item.style.display = 'block'
-            : item.style.display = 'none';
+        itemName.toLowerCase().indexOf(text) != -1
+            ? (item.style.display = "block")
+            : (item.style.display = "none");
     });
-};
+}
