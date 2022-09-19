@@ -1,42 +1,39 @@
-const listItems = document.querySelector("#items");
-const item = document.querySelector("#item");
-const submitBtn = document.querySelector("#addForm");
-let filter = document.querySelector("#filter");
-// --------- //
-submitBtn.addEventListener("submit", addItem);
-listItems.addEventListener("click", deleteItem);
-filter.addEventListener("keyup", filterItem);
-
+const inputItem = document.querySelector("#item");
+const submitItem = document.querySelector("#addForm");
+const items = document.querySelector("#items");
+const searchItem = document.querySelector("#filter");
+//
+submitItem.addEventListener("submit", addItem);
+items.addEventListener("click", deleteItem);
+searchItem.addEventListener("keyup", filterItem);
+//
 function addItem(e) {
-    const li = document.createElement("li");
-    const deleteButton = document.createElement("button");
-    const newItem = document.createTextNode(item.value);
-    // --------- //
     e.preventDefault();
-    if (!item.value) return;
-    // --------- //
+    if(inputItem.value === '') return
+    //
+    const li = document.createElement("li");
+    const newItem = document.createTextNode(inputItem.value);
+    const deleteButton = document.createElement("button");
+    //
     li.className = "list-group-item";
     li.appendChild(newItem);
-    // --------- //
-    deleteButton.className = "btn btn-danger btn-sm float-right delete";
+    //
     deleteButton.appendChild(document.createTextNode("X"));
+    deleteButton.className = "btn btn-danger btn-sm float-right delete";
     li.appendChild(deleteButton);
-    // --------- //
-    listItems.appendChild(li);
-    // --------- //
-    // --------- //
-    item.value = "";
+    items.appendChild(li);
+    inputItem.value = "";
 }
 
 function deleteItem(e) {
     if (e.target.classList.contains("delete")) {
         const li = e.target.parentElement;
-        listItems.removeChild(li);
+        items.removeChild(li);
     }
 }
 
 function filterItem(e) {
-    let items = document.querySelectorAll("li");
+    const items = document.querySelectorAll("li");
     let searchText = e.target.value.toLowerCase();
 
     items.forEach((item) => {
