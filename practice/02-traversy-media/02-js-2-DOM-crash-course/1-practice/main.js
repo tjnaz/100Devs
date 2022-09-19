@@ -9,7 +9,7 @@ searchItem.addEventListener("keyup", filterItem);
 //
 function addItem(e) {
     e.preventDefault();
-    if(inputItem.value === '') return
+    if (inputItem.value === "") return;
     //
     const li = document.createElement("li");
     const newItem = document.createTextNode(inputItem.value);
@@ -27,18 +27,17 @@ function addItem(e) {
 
 function deleteItem(e) {
     if (e.target.classList.contains("delete")) {
-        const li = e.target.parentElement;
+        let li = e.target.parentElement;
         items.removeChild(li);
     }
 }
 
 function filterItem(e) {
-    const items = document.querySelectorAll("li");
+    let listItems = document.querySelectorAll("li");
     let searchText = e.target.value.toLowerCase();
-
-    items.forEach((item) => {
-        let itemName = item.firstChild.textContent;
-        if (itemName.toLowerCase().indexOf(searchText) === -1) {
+    listItems.forEach((item) => {
+        let itemName = item.firstChild.textContent.toLowerCase();
+        if (itemName.indexOf(searchText) === -1) {
             item.style.display = "none";
         } else {
             item.style.display = "block";
