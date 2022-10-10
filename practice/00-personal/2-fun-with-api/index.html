@@ -5,7 +5,7 @@
     <meta name="description" content="This is where your description goes" />
     <meta name="keywords" content="one, two, three" />
 
-    <title>What's Your Favorite Ayah</title>
+    <title>Select a Verse</title>
 
     <link rel="shortcut icon" href="#" type="image/x-icon" />
     <!-- external CSS link -->
@@ -16,11 +16,15 @@
   <body>
     <div class="container">
       <section class="header">
-        <form action="POST">
+        <div class="heading">Select a Verse to View</div>
+        <div class="selection">
           <select name="chapter" id="">
-            <option value=""></option>
+            <option value="default">Select a Surah</option>
           </select>
-        </form>
+          <select name="verse" id="">
+            <option value="default">Select an Ayah</option>
+          </select>
+        </div>
       </section>
       <section class="body1"></section>
       <section class="body2"></section>
