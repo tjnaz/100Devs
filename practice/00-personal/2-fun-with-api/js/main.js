@@ -17,13 +17,22 @@ function getFetch() {
 
 let apiURL = "http://api.alquran.cloud/v1/surah";
 
-document
-  .querySelector("select[name='verse']")
-  .addEventListener("change", showAyah);
+fetch(`${apiURL}`)
+  .then((res) => res.json())
+  .then((data) => {
+    let surahs = data.data;
+    surahs.forEach((item) => {
+      document.querySelector(
+        "select"
+      ).innerHTML += `<option value="${item.number}">${item.number} - ${item.englishName}</option>`;
+    });
+  })
+  .catch((err) => {
+    console.log(`Error ${err}`);
+  });
 
-document
-  .querySelector("select[name='chapter']")
-  .addEventListener("change", getAyah);
+document.querySelector("select[name='chapter']").addEventListener("change", getAyah);
+document.querySelector("select[name='verse']").addEventListener("change", showAyah);
 
 function getAyah(chapter) {
   chapter = document.querySelector("select[name='chapter']").value;
@@ -43,22 +52,17 @@ function getAyah(chapter) {
 
 function showAyah(chapter, ayah) {
   chapter = document.querySelector("select[name='chapter']").value;
-  ayah = document.querySelector("select[name='verse']").value;
-  console.log(`${chapter} | ${ayah}`);
+  verse = document.querySelector("select[name='verse']").value;
+  console.log(`${chapter} | ${verse}`);
+  let fetchAPI = `http://api.alquran.cloud/v1/ayah/${chapter}:${verse}/editions/quran-simple,en.sahih`
+  fetch(fetchAPI)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data.data[0].text)
+      let arabicText = data.data[0].text
+      let englishText = data.data[1].text
+      document.querySelector('.arabic').innerHTML = `<p>${arabicText}</p>`
+      document.querySelector('.english').innerHTML = `<p>${englishText}</p>`
+    })
 }
 
-fetch(`${apiURL}`)
-  .then((res) => res.json())
-  .then((data) => {
-    let surahs = data.data;
-    surahs.forEach((item) => {
-      //console.log(item.number);
-      document.querySelector(
-        "select"
-      ).innerHTML += `<option value="${item.number}">${item.number} - ${item.englishName}</option>`;
-    });
-    //console.log(data.data[0]);
-  })
-  .catch((err) => {
-    console.log(`Error ${err}`);
-  });
