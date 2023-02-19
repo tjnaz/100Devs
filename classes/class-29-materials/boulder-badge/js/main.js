@@ -17,8 +17,17 @@ function convertFahrenheitToCelcius(fahrenheit) {
   return celcius;
 }
 
-let fahrenheit = 103;
+function canCharmanderFight(fahrenheit) {
+  if (convertFahrenheitToCelcius(fahrenheit) <= 0) {
+    console.log("Charmander can't fight");
+  } else {
+    console.log("Charmander can fight");
+  }
+}
 
+let fahrenheit = 30;
+
+canCharmanderFight(fahrenheit);
 console.log(
   `Fahrenheit: ${fahrenheit} -> Celcius: ${
     convertFahrenheitToCelcius(
@@ -29,3 +38,11 @@ console.log(
 
 //loops
 //you have joined an undeground pokemon leauge. in this league, trainers can use any number of pokemon. print to the console "pikachu i choose you" x times where x is the number of pokemon the trainer you are battling has in their party
+
+function battlePokemon(partySize) {
+  for (let i = 1; i <= partySize; i++) {
+    console.log("Pikachu I choose you");
+  }
+}
+
+battlePokemon(5);
