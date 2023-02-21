@@ -46,8 +46,11 @@ console.log(isDividable([22, -6, 32, 82, 9, 25]));
 
 //Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.Return your answer as a number.
 
-function sumArray(numbers) {
-  return numbers.reduce((sum, num) => sum + Number(num), 0);
-}
+// function sumArray(numbers) {
+//   return numbers.reduce((sum, num) => sum + Number(num), 0);
+// }
+
+// CODEWAR MODE
+const sumArray = (numbers) => numbers.reduce((sum, num) => +sum + +num);
 
 console.log(sumArray(["22", "-6", 32, 82, 9, 25]));
