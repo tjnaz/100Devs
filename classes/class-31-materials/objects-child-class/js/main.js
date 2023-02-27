@@ -2,8 +2,12 @@
 
 class Animal {
   constructor(name) {
-    this.name = name;
+    this._name = name;
   }
+  get name() {
+    return this._name;
+  }
+
   speak() {
     console.log(`${this.name} makes a sound`);
   }
