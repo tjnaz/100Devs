@@ -130,6 +130,7 @@
 // }
 // getPaid();
 
+// TODO: Add try, catch method
 //Code 08
 // async function getACuteDogPhoto() {
 //   const res = await fetch("https://dog.ceo/api/breeds/image/random");
