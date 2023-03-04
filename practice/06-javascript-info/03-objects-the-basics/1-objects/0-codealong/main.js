@@ -1,10 +1,10 @@
 let user = {
-    name: 'Adam',
-    age: 30,
-    isAdmin: true,
-}
+  name: "Adam",
+  age: 30,
+  isAdmin: true,
+};
 
-user['like birds'] = true
+// user['like birds'] = true
 
 // let key = prompt('What do you want to know about the user? "name"/"age"')
 
@@ -13,9 +13,9 @@ user['like birds'] = true
 
 // ^console.log(user.key) would throw an error
 
-function addUser(name, age) {
-    return { name: name, age: age, }
-}
+// function addUser(name, age) {
+//     return { name: name, age: age, }
+// }
 
 // user = addUser('John', '23')
 
@@ -26,8 +26,8 @@ function addUser(name, age) {
 
 // ** FOR..IN LOOP ** //
 
-for(let key in user) {
-    console.log(`${key}: ${user[key]}`)
+for (let key in user) {
+  console.log(`${key}: ${user[key]}`);
 }
 
 // Round 2
