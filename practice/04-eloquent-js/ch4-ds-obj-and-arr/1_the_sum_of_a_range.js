@@ -57,12 +57,26 @@
 
 let numbers = [];
 
-function range(start, end) {
-  for (let i = start; i <= end; i++) {
-    numbers.push(i);
+function range(start, end, step = 1) {
+  if (start <= end && step > 0) {
+    for (let i = start; i <= end; i += step) {
+      numbers.push(i);
+    }
+  } else if (start >= end && step < 0) {
+    for (let i = start; i >= end; i += step) {
+      numbers.push(i);
+    }
   }
+
   return numbers;
 }
 
-console.log(range(1, 10));
-// console.log(sum(range(1, 10)));
+function sum(arr) {
+  if (arr.length > 0) {
+    return arr.reduce((acc, e) => (acc += e), 0);
+  }
+  return "Invalid range";
+}
+
+console.log(sum(range(1, 10, 2)));
+console.log(numbers);
