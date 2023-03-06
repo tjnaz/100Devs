@@ -35,3 +35,32 @@
 // --- ************ --- //
 // --- [2023-03-06] --- //
 // --- ************ --- //
+
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+function reverseArray(arr) {
+  let duplicateArr = arr.slice();
+  let arrayLength = arr.length;
+
+  for (let i = 1; i < arrayLength; i++) {
+    duplicateArr.unshift(arr[i]);
+  }
+
+  duplicateArr.splice(arrayLength, duplicateArr.length - 1);
+  return duplicateArr;
+}
+
+function reverseArrayInPlace(arr) {
+  let duplicateArr = arr.slice();
+  let arrayLength = duplicateArr.length;
+
+  for (let i = 1; i < arrayLength; i++) {
+    arr.unshift(duplicateArr[i]);
+  }
+  arr.splice(arrayLength, arr.length - 1);
+  return arr;
+}
+
+// reverseArray(array);
+reverseArrayInPlace(array);
+console.log(array);
