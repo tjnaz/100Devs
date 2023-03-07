@@ -1,7 +1,6 @@
-// Get your shorts on - this is an array workout!
-// ## Array Cardio Day 1
-
-// Some data we can work with
+// --- ************ --- //
+// --- [2023-03-07] --- //
+// --- ************ --- //
 
 const inventors = [
   { first: "Albert", last: "Einstein", year: 1879, passed: 1955 },
@@ -64,58 +63,68 @@ const people = [
 
 // *Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
-// const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600))
-
-// console.log(fifteen)
+let filteredByYear = inventors.filter((e) => e.year > 1500 && e.year <= 1600);
+console.table(filteredByYear);
 
 // *Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
-// const fullName = inventors.map(item => `${item.first} ${item.last}`)
-// console.log(fullName)
+console.table(inventors.map((e) => `${e.first} ${e.last}`));
 
 // *Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
-// const sortedByBirthDate = inventors.sort((a, b) => b.year - a.year)
-// console.table(sortedByBirthDate)
+console.table(inventors.sort((a, b) => a.year - b.year));
 
 // *Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
-// const totalYears = inventors.reduce(
-//   (total, item) => total + (item.passed - item.year),
-//   0,
-// );
-// console.log(totalYears);
+console.log(
+  inventors.reduce((acc, year) => (acc += year.passed - year.year), 0),
+);
 
 // 5. Sort the inventors by years lived
-// const sortedYearsLived = inventors.sort((a, b) => (b.passed - b.year) - (a.passed - a.year))
-// console.table(sortedYearsLived)
+console.table(
+  inventors.sort((a, b) => a.passed - a.year - (b.passed - b.year)),
+);
 
 // *6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-// const categories = document.querySelector('.mw-category')
-// const links = Array.from(categories.querySelectorAll('a'))
-// const filterDe = links.map(item => item.textContent).filter(item => item.includes('de'))
-
-// console.table(filterDe)
 
 // *7. sort Exercise
 // Sort the people alphabetically by last name
-// const items = people.sort(item => item)
-// const onlySplitLastName = items.map(item => item.split(','))
-// const sortedLastName = onlySplitLastName.sort((a, b) => (a[1]).localeCompare(b[1]))
-// console.table(sortedLastName)
+console.table(
+  people
+    .map((e) => e)
+    .map((e) => e.split(", "))
+    .sort((a, b) => a[0].localeCompare(b[0])),
+);
 
 //* 8. Reduce Exercise
 // Sum up the instances of each of these
-// const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+// ^This is a tough one. Should defintely come back to it later!
+const data = [
+  "car",
+  "car",
+  "truck",
+  "truck",
+  "bike",
+  "walk",
+  "car",
+  "van",
+  "bike",
+  "walk",
+  "car",
+  "van",
+  "car",
+  "truck",
+];
 
-const uniqueData = data.reduce((obj, item) => {
-  if (!obj[item]) {
-    obj[item] = 0;
-  }
+// I honestly don't understand this part!!!
+console.table(
+  data.reduce((obj, item) => {
+    if (!obj[item]) {
+      obj[item] = 0;
+    }
 
-  obj[item]++;
-  return obj;
-}, {});
-
-// console.log(uniqueData)
+    obj[item]++;
+    return obj;
+  }, {}),
+);
