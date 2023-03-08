@@ -120,11 +120,12 @@ const data = [
 // I honestly don't understand this part!!!
 console.table(
   data.reduce((obj, item) => {
+    // If there's no object[item] THEN object[item] is zero, this also creates an object[item] then increment it with "obj[item]++"
     if (!obj[item]) {
       obj[item] = 0;
     }
 
     obj[item]++;
     return obj;
-  }, {}),
+  }, {}), // start with a blank object
 );
