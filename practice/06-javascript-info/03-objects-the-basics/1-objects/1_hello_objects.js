@@ -1,11 +1,22 @@
-let user = {}
+// let user = {};
 
-user.name = 'John'
+// user.name = "John";
+// user.surname = "Smith";
+// user.name = "Pete";
 
-user.surname = 'Smith'
+// delete user.surname;
 
-user.name = 'Pete'
+// console.log(user);
 
-delete user.surname
+// --- ************ --- //
+// --- [2023-03-08] --- //
+// --- ************ --- //
 
-console.log(user)
+let user = {};
+
+user.name = "John";
+user.surname = "Smith";
+user.name = "Pete";
+delete user.name;
+
+console.table(user);
