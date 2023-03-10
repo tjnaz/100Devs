@@ -26,6 +26,9 @@ class Character {
     this.health = health;
     this.strength = strength;
     this.xp = 0; // XP is always 0 for new characters
+
+    this.gold = 10;
+    this.key = 1;
   }
 
   // Attack a target <- "attack()" method takes "target" as the argument
@@ -40,10 +43,13 @@ class Character {
       if (target.health > 0) {
         console.log(`${target.name} has ${target.health} health points left`);
       } else {
-        target.health = 0;
         const bonusXP = 10;
+
+        this.gold += target.gold;
+        this.key += target.key;
+        target.health = 0;
         console.log(
-          `${this.name} eliminated ${target.name} and wins ${bonusXP} experience points`,
+          `${this.name} eliminated ${target.name} and wins ${bonusXP} experience points, ${target.gold} gold and ${target.key} key(s)`,
         );
         this.xp += bonusXP;
       }
@@ -54,7 +60,7 @@ class Character {
 
   // Return the character description
   describe() {
-    return `${this.name} has ${this.health} health points, ${this.strength} as strength, and ${this.xp} XP points`;
+    return `${this.name} has ${this.health} health points, ${this.strength} as strength, ${this.xp} XP points, ${this.gold} gold, and ${this.key} key(s)`;
   }
 }
 
