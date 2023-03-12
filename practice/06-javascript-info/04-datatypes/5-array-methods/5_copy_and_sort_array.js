@@ -1,6 +1,6 @@
-function copySorted(arr) {
-  return arr.slice().sort();
-}
+// function copySorted(arr) {
+//   return arr.slice().sort();
+// }
 
 // let arr = ['I', 'learn', 'fix', 'excel', 'win', 'study', 'complex', 'language', 'study']
 
