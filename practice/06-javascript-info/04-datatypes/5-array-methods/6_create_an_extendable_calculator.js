@@ -61,9 +61,11 @@ function Calculator() {
 
 let calc = new Calculator();
 
-console.log(calc.calculate("10 + 7"));
+// console.log(calc.calculate("10 + 7"));
 
 let powerCalc = new Calculator();
+
+// name = "*" and func = "(a, b) => a * b"
 powerCalc.addMethod("*", (a, b) => a * b);
 powerCalc.addMethod("/", (a, b) => a / b);
 powerCalc.addMethod("**", (a, b) => a ** b);
