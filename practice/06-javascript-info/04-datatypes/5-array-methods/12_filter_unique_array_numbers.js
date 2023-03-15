@@ -33,12 +33,13 @@ let strings = [
 function unique(arr) {
   let uniqueArr = [];
 
-  // uniqueArr.push(arr[0]);
-  // for (let i = 1; i < arr.length; i++) {
-  //   !uniqueArr.includes(arr[i]) && uniqueArr.push(arr[i]);
-  // }
+  // SOLUTION FROM JS INFO
+  for (let i of arr) {
+    !uniqueArr.includes(i) && uniqueArr.push(i);
+  }
 
-  arr.forEach((e) => !uniqueArr.includes(e) && uniqueArr.push(e));
+  // MY SOLUTION
+  // arr.forEach((e) => !uniqueArr.includes(e) && uniqueArr.push(e));
 
   return uniqueArr;
 }
