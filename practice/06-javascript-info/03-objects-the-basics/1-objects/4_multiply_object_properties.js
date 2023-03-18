@@ -8,7 +8,7 @@
 // For instance:
 
 // // before the call
-let menu = {
+const menu = {
   width: 200,
   height: 300,
   title: "My menu",
