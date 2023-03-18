@@ -18,6 +18,6 @@ function makeUser() {
   };
 }
 
-let user = makeUser();
+const user = makeUser();
 
 console.log(user.ref.name); // What's the result? // Error: Cannot read property 'name' of undefined
