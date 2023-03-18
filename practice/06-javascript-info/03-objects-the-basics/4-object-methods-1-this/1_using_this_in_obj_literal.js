@@ -14,10 +14,13 @@
 function makeUser() {
   return {
     name: "John",
-    ref: this,
+    ref() {
+      return this.name;
+    },
   };
 }
-
 const user = makeUser();
 
-console.log(user.ref.name); // What's the result? // Error: Cannot read property 'name' of undefined
+console.log(user.ref());
+
+// console.log(user.ref.name); // What's the result? // Error: Cannot read property 'name' of undefined
