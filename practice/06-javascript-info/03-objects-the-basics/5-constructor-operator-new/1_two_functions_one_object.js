@@ -24,7 +24,7 @@
 
 // So they can, for instance, return the same externally defined object obj:
 
-let obj = {};
+const obj = {};
 
 function A() {
   return obj;
