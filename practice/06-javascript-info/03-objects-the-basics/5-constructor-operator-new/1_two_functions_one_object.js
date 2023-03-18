@@ -34,3 +34,16 @@ function B() {
 }
 
 console.log(new A() == new B()); // true
+
+// --- ************ --- //
+// --- [2023-03-10] --- //
+// --- ************ --- //
+
+// function BigUser() {
+//   this.name = "John";
+//   return { name: "baba" };
+// }
+
+// let pp = new BigUser();
+
+// console.log(pp.name);
