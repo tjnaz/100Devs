@@ -23,28 +23,38 @@ class Group {
     this.group = [];
   }
 
+  has(value) {
+    // checks for the value
+    return this.group.includes(value);
+  }
+
   add(value) {
     // checks to see if the passed value exists if not add it to the array
-    !this.group.includes(value) && this.group.push(value);
+    !this.has(value) && this.group.push(value);
   }
 
   delete(value) {
     // performs a check to see the value exists before deleting
-    this.group.includes(value) &&
-      this.group.splice(this.group.indexOf(value), 1);
+    this.has(value) && this.group.splice(this.group.indexOf(value), 1);
   }
 
-  has() {
-    // method props
+  static from(obj) {
+    let newGroup = new Group();
+    for (let item of obj) {
+      newGroup.add(item);
+    }
+    return newGroup;
   }
 }
 
-// let group = Group.from([10, 20]);
-// console.log(group.has(10));
+let group = Group.from([10, 20]);
+console.log(group.has(10));
 // // → true
-// console.log(group.has(30));
+console.log(group.has(30));
 // // → false
-// group.add(10);
-// group.delete(10);
-// console.log(group.has(10));
+group.add(10);
+group.add(50);
+group.delete(10);
+console.log(group.has(10));
 // // → false
+console.log(group);
