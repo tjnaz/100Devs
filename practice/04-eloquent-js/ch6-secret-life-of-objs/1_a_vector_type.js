@@ -18,10 +18,14 @@ class Vec {
     this.y = y;
   }
   plus(vec2) {
-    return `x: ${this.x + vec2.x}, y: ${this.y + vec2.y}`;
+    const x = this.x + vec2.x;
+    const y = this.y + vec2.y;
+    return new Vec(x, y);
   }
   minus(vec2) {
-    return `x: ${this.x - vec2.x}, y: ${this.y - vec2.y}`;
+    const x = this.x - vec2.x;
+    const y = this.y - vec2.y;
+    return new Vec(x, y);
   }
 }
 
