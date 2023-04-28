@@ -7,12 +7,15 @@ class EspressoMachine {
     this.model = model;
     this.price = price;
   }
+
   turnOn() {
     console.log("ON!");
   }
+
   steam() {
     console.log("STEAM!!");
   }
+
   brew() {
     console.log("IT'S BREWING TIME!!");
   }
