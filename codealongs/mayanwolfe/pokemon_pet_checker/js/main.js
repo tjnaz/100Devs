@@ -1,39 +1,35 @@
 document.querySelector("button").addEventListener("click", getFetch);
 
 function getFetch() {
-  const choice = document.querySelector("input").value.toLowerCase();
-  const url = `https://pokeapi.co/api/v2/pokemon/${choice}`;
+  const choice = document.querySelector("input").value;
+  const url = `https://pokeapi.co/api/v2/pokemon/${choice.toLowerCase()}`;
   // const img = `.official-artwork.front_default`;
 
   fetch(url)
     .then((res) => res.json()) // parse response as J Shaun
 
     .then((data) => {
-      // console.log(data.name);
-      // console.log(data.height);
-      // console.log(data.weight);
-      // // console.log(data.types[0].type.name);
-      // console.log(data.sprites.other["official-artwork"].front_default);
-      // console.log(data.sprites.other.dream_world.front_default);
-
       const potentialPet = new Poke(
         data.name,
         data.height,
         data.weight,
         data.types,
-        // data.types[0].type.name,
         data.sprites.other["official-artwork"].front_default
       );
 
       potentialPet.getTypes();
       potentialPet.isItAHousePet();
 
+      let decision = "";
       if (!potentialPet.isHousePet) {
-        console.log("can't be a pet cuz:");
-        for (const prop of potentialPet.reason) {
-          console.log(prop);
-        }
+        decision = `${choice} would probably not be a good pet because ${potentialPet.reason.join(
+          " and "
+        )}`;
+      } else {
+        decision = `${choice} is small enough, light enough' and safe enough to be a good house pet!!`;
       }
+      document.querySelector("h2").innerText = decision;
+      document.querySelector("img").src = potentialPet.image;
     })
 
     .catch((err) => {
@@ -76,7 +72,7 @@ class Poke {
       this.reason.push(`it's too heavy at ${this.convertToKG(this.weight)}KGs`);
     }
 
-    if (this.convertToM(this.height) > 150) {
+    if (this.convertToM(this.height) > 2) {
       this.isHousePet = false;
       this.reason.push(`it's too tall at ${this.convertToM(this.height)}M`);
     }
