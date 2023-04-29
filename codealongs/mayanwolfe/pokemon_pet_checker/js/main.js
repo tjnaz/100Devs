@@ -65,7 +65,14 @@ class Poke {
 
   isItAHousePet() {
     // check height, weight, and types
-    let badTypes = ["fire", "electric", "fighting", "poison", "ghost"];
+    let badTypes = [
+      "fire",
+      "electric",
+      "fighting",
+      "poison",
+      "ghost",
+      "psychic",
+    ];
 
     if (this.convertToKG(this.weight) > 150) {
       this.isHousePet = false;
