@@ -27,7 +27,7 @@ function getFetch() {
         }`;
       } else {
         decision =
-          `${choice} is small enough, light enough' and safe enough to be a good house pet!!`;
+          `${choice} is small enough, light enough and safe enough to be a good house pet!!`;
       }
       document.querySelector("h2").innerText = decision;
       document.querySelector("img").src = potentialPet.image;
