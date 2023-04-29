@@ -1,7 +1,7 @@
 document.querySelector("button").addEventListener("click", getFetch);
 
 function getFetch() {
-  const choice = document.querySelector("input").value;
+  const choice = document.querySelector("input").value.replaceAll(" ", "-");
   const url = `https://pokeapi.co/api/v2/pokemon/${choice.toLowerCase()}`;
 
   fetch(url)
