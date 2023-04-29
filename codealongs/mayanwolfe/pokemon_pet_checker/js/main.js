@@ -3,18 +3,16 @@ document.querySelector("button").addEventListener("click", getFetch);
 function getFetch() {
   const choice = document.querySelector("input").value;
   const url = `https://pokeapi.co/api/v2/pokemon/${choice.toLowerCase()}`;
-  // const img = `.official-artwork.front_default`;
 
   fetch(url)
     .then((res) => res.json()) // parse response as J Shaun
-
     .then((data) => {
       const potentialPet = new Poke(
         data.name,
         data.height,
         data.weight,
         data.types,
-        data.sprites.other["official-artwork"].front_default
+        data.sprites.other["official-artwork"].front_default,
       );
 
       potentialPet.getTypes();
@@ -22,16 +20,18 @@ function getFetch() {
 
       let decision = "";
       if (!potentialPet.isHousePet) {
-        decision = `${choice} would probably not be a good pet because ${potentialPet.reason.join(
-          " and "
-        )}`;
+        decision = `${choice} would probably not be a good pet because ${
+          potentialPet.reason.join(
+            " and ",
+          )
+        }`;
       } else {
-        decision = `${choice} is small enough, light enough' and safe enough to be a good house pet!!`;
+        decision =
+          `${choice} is small enough, light enough' and safe enough to be a good house pet!!`;
       }
       document.querySelector("h2").innerText = decision;
       document.querySelector("img").src = potentialPet.image;
     })
-
     .catch((err) => {
       console.log(`error ${err}`);
     });
