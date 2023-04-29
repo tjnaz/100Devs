@@ -15,7 +15,7 @@ function getFetch() {
         data.height,
         data.weight,
         data.types,
-        data.sprites.other["official-artwork"].front_default,
+        data.sprites.other["official-artwork"].front_default
       );
 
       potentialPet.getTypes();
@@ -23,14 +23,11 @@ function getFetch() {
 
       let decision = "";
       if (!potentialPet.isHousePet) {
-        decision = `${choice} would probably not be a good pet because ${
-          potentialPet.reason.join(
-            " and ",
-          )
-        }`;
+        decision = `${choice} would probably not be a good pet because ${potentialPet.reason.join(
+          " and "
+        )}`;
       } else {
-        decision =
-          `${choice} is small enough, light enough and safe enough to be a good house pet!!`;
+        decision = `${choice} is small enough, light enough and safe enough to be a good house pet!!`;
       }
       document.querySelector("h2").innerText = decision;
       document.querySelector("img").src = potentialPet.image;
@@ -99,3 +96,26 @@ class Poke {
 /*
 GET https://pokeapi.co/api/v2/pokemon/pikachu
 */
+/*
+GET https://pokeapi.co/api/v2/pokemon/25/encounters
+*/
+
+class PokeInfo extends Poke {
+  constructor(name, height, weight, types, image, location) {
+    super(name, height, weight, types, image);
+    this.locationURL = locations;
+    this.locationList = [];
+    this.locationString = "";
+  }
+
+  encounterInfo() {
+    fetch(this.locationURL)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(`error ${err}`);
+      });
+  }
+}
