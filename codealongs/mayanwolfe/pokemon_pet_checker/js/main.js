@@ -103,7 +103,7 @@ GET https://pokeapi.co/api/v2/pokemon/25/encounters
 class PokeInfo extends Poke {
   constructor(name, height, weight, types, image, location) {
     super(name, height, weight, types, image);
-    this.locationURL = locations;
+    this.locationURL = location;
     this.locationList = [];
     this.locationString = "";
   }
@@ -113,9 +113,27 @@ class PokeInfo extends Poke {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+
+        for (const item of data) {
+          this.locationList.push(item.location_area.name);
+        }
+        console.log(this.locationList);
+        console.log(this.locationCleanup());
       })
       .catch((err) => {
         console.log(`error ${err}`);
       });
+  }
+
+  locationCleanup() {
+    const words = this.locationList
+      .slice(0, 5)
+      .joine(",")
+      .replaceAll("-", " ")
+      .split(" ");
+
+    console.log(this.locationList);
+
+    return words;
   }
 }
