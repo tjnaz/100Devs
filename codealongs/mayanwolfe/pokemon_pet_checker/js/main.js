@@ -10,16 +10,18 @@ function getFetch() {
   fetch(url)
     .then((res) => res.json()) // parse response as J Shaun
     .then((data) => {
-      const potentialPet = new Poke(
+      const potentialPet = new PokeInfo(
         data.name,
         data.height,
         data.weight,
         data.types,
-        data.sprites.other["official-artwork"].front_default
+        data.sprites.other["official-artwork"].front_default,
+        data.location_area_encounters
       );
 
       potentialPet.getTypes();
       potentialPet.isItAHousePet();
+      potentialPet.encounterInfo();
 
       let decision = "";
       if (!potentialPet.isHousePet) {
@@ -29,6 +31,7 @@ function getFetch() {
       } else {
         decision = `${choice} is small enough, light enough and safe enough to be a good house pet!!`;
       }
+
       document.querySelector("h2").innerText = decision;
       document.querySelector("img").src = potentialPet.image;
     })
@@ -112,12 +115,10 @@ class PokeInfo extends Poke {
     fetch(this.locationURL)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
         for (const item of data) {
           this.locationList.push(item.location_area.name);
         }
-        console.log(this.locationList);
+
         console.log(this.locationCleanup());
       })
       .catch((err) => {
@@ -128,7 +129,7 @@ class PokeInfo extends Poke {
   locationCleanup() {
     const words = this.locationList
       .slice(0, 5)
-      .joine(",")
+      .join(",")
       .replaceAll("-", " ")
       .split(" ");
 
