@@ -129,7 +129,15 @@ class PokeInfo extends Poke {
   }
 
   locationCleanup(prop) {
-    const words = this.locationList.slice(0, 5).join("- ").split("-");
-    return words;
+    const words = this.locationList
+      .slice(0, 5)
+      .join(", ")
+      .replaceAll("-", " ")
+      .split("-");
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+    }
+
+    return words.join(" ");
   }
 }
