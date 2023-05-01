@@ -119,6 +119,8 @@ class PokeInfo extends Poke {
           this.locationList.push(item.location_area.name);
         }
 
+        console.log(this.locationList);
+
         console.log(this.locationCleanup());
       })
       .catch((err) => {
@@ -126,15 +128,8 @@ class PokeInfo extends Poke {
       });
   }
 
-  locationCleanup() {
-    const words = this.locationList
-      .slice(0, 5)
-      .join(",")
-      .replaceAll("-", " ")
-      .split(" ");
-
-    console.log(this.locationList);
-
+  locationCleanup(prop) {
+    const words = this.locationList.slice(0, 5).join("- ").split("-");
     return words;
   }
 }
