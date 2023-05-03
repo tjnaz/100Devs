@@ -21,15 +21,22 @@ function getFetch() {
 
       potentialPet.getTypes();
       potentialPet.isItAHousePet();
-      potentialPet.encounterInfo();
 
       let decision = "";
       if (!potentialPet.isHousePet) {
         decision = `${choice} would probably not be a good pet because ${potentialPet.reason.join(
           " and "
         )}`;
+
+        document.getElementById("locations").innerText = "";
       } else {
-        decision = `${choice} is small enough, light enough and safe enough to be a good house pet!!`;
+        if (potentialPet.locationList.length > 0) {
+          decision = `${potentialPet.name} is small enough, light enough and safe enough to be a good house pet!! You can find this in the following locations(s):`;
+
+          potentialPet.encounterInfo();
+        } else {
+          decision = `no locations found`;
+        }
       }
 
       document.querySelector("h2").innerText = decision;
@@ -119,13 +126,13 @@ class PokeInfo extends Poke {
           this.locationList.push(item.location_area.name);
         }
 
-        console.log(this.locationList);
-
-        console.log(this.locationCleanup());
+        let target = document.getElementById("locations");
+        target.innerText = `${this.locationCleanup()}`;
       })
       .catch((err) => {
         console.log(`error ${err}`);
       });
+    // console.log(this.locationList.join(", "), "inside of encounters");
   }
 
   locationCleanup(prop) {
@@ -138,6 +145,6 @@ class PokeInfo extends Poke {
       words[i] = words[i][0].toUpperCase() + words[i].slice(1);
     }
 
-    return words.join(" ").split(",");
+    return words.join(" ");
   }
 }
