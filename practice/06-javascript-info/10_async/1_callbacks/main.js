@@ -7,6 +7,4 @@ function loadScript(src, callback) {
   document.body.append(script);
 }
 
-loadScript("./script.js", function () {
-  newFunction();
-});
+loadScript("./script.js", () => newFunction());
