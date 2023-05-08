@@ -1,3 +1,3 @@
 function newFunction() {
-  alert("hi bruv, cold init");
+  console.log("hi bruv, cold init");
 }
