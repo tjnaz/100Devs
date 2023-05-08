@@ -5,6 +5,9 @@
 
 function delay(ms) {
   // your code
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(), ms);
+  });
 }
 
-delay(3000).then(() => alert("runs after 3 seconds"));
+delay(10000).then(() => alert("runs after 10 seconds"));
