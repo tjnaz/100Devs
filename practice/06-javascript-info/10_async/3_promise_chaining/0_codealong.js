@@ -23,24 +23,24 @@
 //     return result * 2;
 //   });
 
-// refactor
-new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000))
-  .then((res) => {
-    console.log(res);
-    return res * 2;
-  })
-  .then((res) => {
-    console.log(res);
-    return res * 2;
-  })
-  .then((res) => {
-    console.log(res);
-    return res * 2;
-  })
-  .then((res) => {
-    console.log(res);
-    return res * 2;
-  });
+// // refactor
+// new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000))
+//   .then((res) => {
+//     console.log(res);
+//     return res * 2;
+//   })
+//   .then((res) => {
+//     console.log(res);
+//     return res * 2;
+//   })
+//   .then((res) => {
+//     console.log(res);
+//     return res * 2;
+//   })
+//   .then((res) => {
+//     console.log(res);
+//     return res * 2;
+//   });
 
 // // 1. not proper chaining
 // let promise = new Promise(function (resolve, reject) {
@@ -98,3 +98,30 @@ new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000))
 //   .then(function (result) {
 //     console.log(result);
 //   });
+
+// refactor: 2. Returning Promises
+new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000))
+  .then((result) => {
+    console.log(result);
+    return new Promise((resolve, reject) =>
+      setTimeout(() => resolve(result * 2), 1000)
+    );
+  })
+  .then((result) => {
+    console.log(result);
+    return new Promise((resolve, reject) =>
+      setTimeout(() => resolve(result * 2), 1000)
+    );
+  })
+  .then((result) => {
+    console.log(result);
+    return new Promise((resolve, reject) =>
+      setTimeout(() => resolve(result * 2), 1000)
+    );
+  })
+  .then((result) => {
+    console.log(result);
+    return new Promise((resolve, reject) =>
+      setTimeout(() => resolve(result * 2), 1000)
+    );
+  });
