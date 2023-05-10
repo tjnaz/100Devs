@@ -126,26 +126,23 @@
 //     );
 //   });
 
-// 3. example: loadScript
-function loadScript(src) {
-  return new Promise((resolve, reject) => {
-    let script = document.createElement("script");
-    script.src = src;
-
-    script.onload = () => resolve(script);
-    script.onerror = () =>
-      reject(new Error(`!!!!Script load error for ${src}`));
-
-    document.body.append(script);
-  });
-}
-
-loadScript("./script.js")
-  .then((script) => loadScript("./one.js"))
-  .then((script) => loadScript("./two.js"))
-  .then((script) => loadScript("./three.js"))
-  .then((script) => {
-    one();
-    two();
-    three();
-  });
+// // 3. example: loadScript
+// function loadScript(src) {
+//   return new Promise((resolve, reject) => {
+//     let script = document.createElement("script");
+//     script.src = src;
+//     script.onload = () => resolve(script);
+//     script.onerror = () =>
+//       reject(new Error(`!!!!Script load error for ${src}`));
+//     document.body.append(script);
+//   });
+// }
+// loadScript("./script.js")
+//   .then((script) => loadScript("./one.js"))
+//   .then((script) => loadScript("./two.js"))
+//   .then((script) => loadScript("./three.js"))
+//   .then((script) => {
+//     one();
+//     two();
+//     three();
+//   });
