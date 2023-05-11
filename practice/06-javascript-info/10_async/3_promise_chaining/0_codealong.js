@@ -146,3 +146,8 @@
 //     two();
 //     three();
 //   });
+
+// 4. Bigger Example: Fetch
+fetch("https://javascript.info/article/promise-chaining/user.json")
+  .then((res) => res.json())
+  .then((user) => console.log(user.name));
