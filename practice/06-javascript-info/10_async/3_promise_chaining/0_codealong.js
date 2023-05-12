@@ -171,7 +171,7 @@ function loadGithubUser(name) {
 }
 
 function showAvatar(githubUser) {
-  return new Promise(function (res, rej) {
+  return new Promise(function (resolve, reject) {
     let img = document.createElement("img");
     img.src = githubUser.avatar_url;
     img.className = "promise-avatar-example";
