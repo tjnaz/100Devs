@@ -147,7 +147,44 @@
 //     three();
 //   });
 
-// 4. Bigger Example: Fetch
-fetch("https://javascript.info/article/promise-chaining/user.json")
-  .then((res) => res.json())
-  .then((user) => console.log(user.name));
+// // 4. Bigger Example: Fetch
+// fetch("https://javascript.info/article/promise-chaining/user.json")
+//   .then((res) => res.json())
+//   .then((user) => fetch(`https://api.github.com/users/${user.name}`))
+//   .then((res) => res.json())
+//   .then((ghUser) => {
+//     let img = document.createElement("img");
+//     img.src = ghUser.avatar_url;
+//     img.className = "promise-avatar-example";
+//     document.body.append(img);
+//     setTimeout(() => img.remove(), 3000);
+//   })
+//   .then();
+
+// splitting code to different functions
+function loadJson(url) {
+  return fetch(url).then((res) => res.json());
+}
+
+function loadGithubUser(name) {
+  return loadJson(`https://api.github.com/users/${name}`);
+}
+
+function showAvatar(githubUser) {
+  return new Promise(function (res, rej) {
+    let img = document.createElement("img");
+    img.src = githubUser.avatar_url;
+    img.className = "promise-avatar-example";
+    document.body.append(img);
+    setTimeout(() => {
+      img.remove();
+      resolve(githubUser);
+    }, 3000);
+  });
+}
+
+// use them
+loadJson("https://javascript.info/article/promise-chaining/user.json")
+  .then((user) => loadGithubUser(user.name))
+  .then(showAvatar)
+  .then((githubUser) => console.log(`Finished showing ${githubUser.name}`));
