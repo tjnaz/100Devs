@@ -23,11 +23,38 @@
 //   )
 //   .catch((error) => console.log(error.message));
 
-// 1. Implicit try...catch
-new Promise((resolve, reject) => {
-  throw new Error("Whoopsie daisie");
-}).catch(console.log);
+// // 1. Implicit try...catch
+// new Promise((resolve, reject) => {
+//   throw new Error("Whoopsie daisie");
+// }).catch(console.log);
+// new Promise((resolve, reject) => {
+//   reject(new Error("whoopsie daisyy!!!"));
+// }).catch(console.log);
 
+// 2. Rethrowing
+// the execution: catch -> then
+// new Promise((resolve, reject) => {
+//   throw new Error("you done messed up aa ron");
+// })
+//   .catch((error) => {
+//     console.log("the error is handled");
+//   })
+//   .then(() => console.log("next successful handler runs"));
+// the execution: catch -> catch
 new Promise((resolve, reject) => {
-  reject(new Error("whoopsie daisyy!!!"));
-}).catch(console.log);
+  throw new Error("every frkn time");
+})
+  .catch((error) => {
+    if (error instanceof URIError) {
+      // handle the error
+    } else {
+      console.log("can't handle the error, passing on...");
+      throw error;
+    }
+  })
+  .then(() => {
+    // nothing runs here
+  })
+  .catch((error) => {
+    console.log(`the unknown error has occurred, ${error}`);
+  });
