@@ -3,7 +3,6 @@
 // fetch("https://no-such-server.blable")
 //   .then((res) => res.json())
 //   .catch((err) => console.log(err));
-
 // fetch("https://javascript.info/article/promise-chaining/user.json")
 //   .then((response) => response.json())
 //   .then((user) => fetch(`https://api.github.com/users/${user.name}`))
