@@ -47,3 +47,20 @@
 //   ),
 //   new Promise((resolve, reject) => setTimeout(() => resolve(3), 1000)),
 // ]).then(console.log);
+
+// 2. Promise.allSettled
+let urls = [
+  "https://api.github.com/users/iliakan",
+  "https://api.github.com/users/tjnaz",
+  "no-such-url",
+];
+Promise.allSettled(urls.map((url) => fetch(url))).then((results) => {
+  results.forEach((result, num) => {
+    if (result.status == "fulfilled") {
+      console.log(`${urls[num]}: ${result.value.status}`);
+    }
+    if (result.status == "rejected") {
+      console.log(`${urls[num]}: ${result.reason}`);
+    }
+  });
+});
