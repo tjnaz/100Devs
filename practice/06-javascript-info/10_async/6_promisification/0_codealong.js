@@ -29,6 +29,8 @@ function loadScript(src, callback) {
 // promisify v2.0 -> helper
 // A call to 'promisify(f)' returns a wrapper around 'f(*)'. That wrapper returns a promise
 // and forwards the call to the original 'f', tracking the result in the custom callback(**)
+// **--** Here, promisify assumes that the original function expects a **--**
+// **--** callback with exactly two arguments (err, result). **--**
 function promisify(f) {
   return function (...args) {
     // return a wrapper-function (*)
