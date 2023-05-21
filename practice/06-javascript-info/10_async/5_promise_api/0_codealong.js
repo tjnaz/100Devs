@@ -81,5 +81,5 @@ Promise.any([
     setTimeout(() => reject(new Error("error")), 1000)
   ),
   new Promise((resolve, reject) => setTimeout(() => resolve(1), 2000)),
-  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000)),
-]);
+  new Promise((resolve, reject) => setTimeout(() => resolve(2), 3000)),
+]).then(console.log);
