@@ -64,12 +64,13 @@ async function loadJson(url) {
 
 // // Ask for a user name until github returns a valid user
 async function demoGithubUser() {
-  let name = prompt("Enter a name?", "iliakan");
+  // let name = prompt("Enter a name?", "iliakan");
+  let name = "tjnaz";
 
   try {
     let user = await loadJson(`https://api.github.com/users/${name}`);
     console.log(`Full name: ${user.name}.`);
-    alert(`Full name: ${user.name}.`);
+    // alert(`Full name: ${user.name}.`);
     return user;
   } catch (err) {
     if (err instanceof HttpError && err.response.status == 404) {
@@ -79,6 +80,26 @@ async function demoGithubUser() {
       throw err;
     }
   }
+
+  // // solution from the site
+  // let user;
+  // while (true) {
+  //   let name = prompt("Enter a name?", "iliakan");
+  //   try {
+  //     user = await loadJson(`https://api.github.com/users/${name}`);
+  //     break; // no error, exit loop
+  //   } catch (err) {
+  //     if (err instanceof HttpError && err.response.status == 404) {
+  //       // loop continues after the alert
+  //       alert("No such user, please reenter.");
+  //     } else {
+  //       // unknown error, rethrow
+  //       throw err;
+  //     }
+  //   }
+  // }
+  // alert(`Full name: ${user.name}.`);
+  // return user;
 }
 
 demoGithubUser();
