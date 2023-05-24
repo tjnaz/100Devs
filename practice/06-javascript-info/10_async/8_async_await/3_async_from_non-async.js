@@ -20,7 +20,7 @@ async function wait() {
 }
 
 function f() {
-  wait().then(console.log);
+  wait().then((res) => console.log(res));
 }
 
 f();
