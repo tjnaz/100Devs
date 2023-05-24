@@ -3,7 +3,6 @@
 
 // async function wait() {
 //   await new Promise(resolve => setTimeout(resolve, 1000));
-
 //   return 10;
 // }
 
@@ -14,3 +13,14 @@
 // }
 
 // P.S. The task is technically very simple, but the question is quite common for developers new to async/await.
+
+async function wait() {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return 10;
+}
+
+function f() {
+  wait().then(console.log);
+}
+
+f();
