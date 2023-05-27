@@ -1,29 +1,51 @@
 const fs = require("fs");
 const path = require("path");
 
-// Create folder
-// fs.mkdir(path.join(__dirname, "/test"), {}, (err) => {
-//   if (err) throw err;
+// // add/remove the directory based on the condition
+// if (fs.existsSync(path.join(__dirname, "/test"))) {
+//   fs.rmdir(path.join(__dirname, "test"), {}, (err) => {
+//     if (err) throw err;
+//     console.log("folder is successfully removed");
+//   });
+// } else {
+//   fs.mkdir(path.join(__dirname, "/test"), {}, (err) => {
+//     if (err) throw err;
+//     console.log("folder created");
+//   });
+// }
 
-//   console.log("Folder created");
-// });
+// write (to) files
+// fs.writeFile(
+//   path.join(__dirname, "/test", "hello.txt"),
+//   "file is being accessed\n",
+//   (err) => {
+//     if (err) throw err;
+//     console.log("file written to...");
 
-// Delete a folder
-// fs.rmdir(path.join(__dirname, "test"), {}, (err) => {
-//   if (err) throw err;
+//     // append the file
+//     fs.appendFile(
+//       path.join(__dirname, "/test", "hello.txt"),
+//       "file is being appended\n",
+//       (err) => {
+//         if (err) throw err;
+//         console.log("file is appended");
+//       }
+//     );
+//   }
+// );
 
-//   console.log("Folder is successfully removed");
-// });
+// Read file
+fs.readFile(path.join(__dirname, "/test", "hello.txt"), "utf8", (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
 
-// Add/Remove the directory based on the condition
-if (fs.existsSync(path.join(__dirname, "/test"))) {
-  fs.rmdir(path.join(__dirname, "test"), {}, (err) => {
+fs.rename(
+  path.join(__dirname, "/test", "hello.txt"),
+  path.join(__dirname, "/test", "2_hello.txt"),
+  (err) => {
     if (err) throw err;
-    console.log("Folder is successfully removed");
-  });
-} else {
-  fs.mkdir(path.join(__dirname, "/test"), {}, (err) => {
-    if (err) throw err;
-    console.log("Folder created");
-  });
-}
+
+    console.log("renamed successfully");
+  }
+);
