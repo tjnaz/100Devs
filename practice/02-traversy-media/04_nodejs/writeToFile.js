@@ -8,9 +8,9 @@ class Messages {
   // }
 
   write(id, msg) {
-    fs.writeFile(
+    fs.appendFile(
       path.join(__dirname, "messages.txt"),
-      `${id}: ${msg}`,
+      `${id}: ${msg}\n`,
       (err) => {
         if (err) throw err;
 
