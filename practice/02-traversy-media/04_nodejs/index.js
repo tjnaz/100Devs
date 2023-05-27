@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
 
   if (req.url === "/about") {
     fs.readFile(
-      path.join(__dirname, "public", "about.html"),
+      path.join(__dirname, "public", "index.html"),
       (err, content) => {
         if (err) throw err;
         res.writeHead(200, { "Content-Type": "text/html" });
@@ -46,6 +46,17 @@ const server = http.createServer((req, res) => {
       }
     );
   }
+
+  // api endpoint in json
+  if (req.url === "/api/users") {
+    const users = [
+      { name: "abc", age: 10 },
+      { name: "xyz", age: 55 },
+    ];
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(users));
+  }
+
   console.log(req.url);
 });
 
