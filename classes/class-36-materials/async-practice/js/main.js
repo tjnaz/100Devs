@@ -14,13 +14,13 @@
 
 // Code 02
 function houseOne() {
-  console.log("Paper delivered to house 1");
+  setTimeout(() => console.log("Paper delivered to house 1"), 1000);
 }
 function houseTwo() {
-  setTimeout(() => console.log("Paper delivered to house 2"), 3000);
+  setTimeout(() => console.log("Paper delivered to house 2"), 2000);
 }
 function houseThree() {
-  console.log("Paper delivered to house 3");
+  setTimeout(() => console.log("Paper delivered to house 3"), 3000);
 }
 houseOne();
 houseTwo();
