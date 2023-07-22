@@ -10,6 +10,7 @@ const server = http.createServer((req, res) => {
   const page = url.parse(req.url).pathname;
   const params = querystring.parse(url.parse(req.url).query);
   console.log(page);
+
   if (page == "/") {
     fs.readFile("index.html", function (err, data) {
       res.writeHead(200, { "Content-Type": "text/html" });
@@ -31,11 +32,15 @@ const server = http.createServer((req, res) => {
   } else if (page == "/api") {
     if ("student" in params) {
       if (params["student"] == "leon") {
+        let coinFlip = Math.ceil(Math.random() * 2) === 1 ? "heads" : "tails";
+
         res.writeHead(200, { "Content-Type": "application/json" });
+
         const objToJson = {
           name: "leon",
           status: "Boss Man",
           currentOccupation: "Baller",
+          coinFlipRes: coinFlip,
         };
         res.end(JSON.stringify(objToJson));
       } //student = leon
