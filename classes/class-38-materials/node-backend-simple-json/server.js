@@ -16,6 +16,7 @@ const server = http.createServer((req, res) => {
       res.end();
     });
   };
+
   if (page == "/") {
     redirect("index.html", "text/html");
     // fs.readFile("index.html", function (err, data) {
@@ -28,6 +29,9 @@ const server = http.createServer((req, res) => {
   } else if (page == "/otherotherpage") {
     redirect("otherotherpage", "text/html");
   } else if (page == "/api") {
+    let coinFlip = Math.ceil(Math.random() * 2) == 1 ? "heads" : "tails";
+    console.log(coinFlip);
+
     if ("student" in params) {
       let studentName = params["student"];
 
@@ -37,6 +41,7 @@ const server = http.createServer((req, res) => {
           name: studentName,
           status: `${studentName} is available`,
           currentOccupation: "Baller",
+          coinFlipRes: coinFlip,
         };
         res.end(JSON.stringify(objToJson));
       } //student = leon
