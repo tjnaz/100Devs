@@ -8,24 +8,25 @@ const server = http.createServer((req, res) => {
   const page = url.parse(req.url).pathname;
   const params = querystring.parse(url.parse(req.url).query);
   console.log(page);
+
+  const redirect = (file, contentType) => {
+    return fs.readFile(file, (err, data) => {
+      res.writeHead(200, { "Content-Type": contentType });
+      res.write(data);
+      res.end();
+    });
+  };
   if (page == "/") {
-    fs.readFile("index.html", function (err, data) {
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write(data);
-      res.end();
-    });
+    redirect("index.html", "text/html");
+    // fs.readFile("index.html", function (err, data) {
+    //   res.writeHead(200, { "Content-Type": "text/html" });
+    //   res.write(data);
+    //   res.end();
+    // });
   } else if (page == "/otherpage") {
-    fs.readFile("otherpage.html", function (err, data) {
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write(data);
-      res.end();
-    });
+    redirect("otherpage.html", "text/html");
   } else if (page == "/otherotherpage") {
-    fs.readFile("otherotherpage.html", function (err, data) {
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.write(data);
-      res.end();
-    });
+    redirect("otherotherpage", "text/html");
   } else if (page == "/api") {
     if ("student" in params) {
       let studentName = params["student"];
@@ -34,7 +35,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, { "Content-Type": "application/json" });
         const objToJson = {
           name: studentName,
-          status: "Boss Man",
+          status: `${studentName} is available`,
           currentOccupation: "Baller",
         };
         res.end(JSON.stringify(objToJson));
