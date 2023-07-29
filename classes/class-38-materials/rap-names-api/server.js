@@ -21,6 +21,7 @@ const rappers = {
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "/main.js");
 });
 
 app.get("/api/:rapperName", (req, res) => {
