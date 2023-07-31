@@ -1,6 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const MongoClient = require("mongodb").MongoClient;
+const connectionString =
+  "mongodb+srv://yoda:ueoa@star-war-quotes.ewmevsi.mongodb.net/star-war-quotes?retryWrites=true&w=majority";
+
+// const connectionString2 =
+//   "mongodb+srv://yoda:ueoa@star-war-quotes.ewmevsi.mongodb.net/?retryWrites=true&w=majority";
+
+MongoClient.connect(connectionString, (err, client) => {
+  if (err) return console.error(err);
+  console.log("Connected to DB");
+});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
