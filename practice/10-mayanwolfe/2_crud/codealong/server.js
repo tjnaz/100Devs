@@ -12,19 +12,23 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
     console.log("Connected to DB");
     const db = client.db("star-wars-quotes");
+    const quotesCollection = db.collection("quotes");
 
     app.use(bodyParser.urlencoded({ extended: true }));
-
-    app.listen(3000, function () {
-      console.log("listening on 3000");
-    });
 
     app.get("/", (req, res) => {
       res.sendFile(__dirname + "/index.html");
     });
 
     app.post("/quotes", (req, res) => {
-      console.log(req.body);
+      quotesCollection
+        .insertOne(req.body)
+        .then((result) => console.log(result))
+        .catch((error) => console.error(err));
+    });
+
+    app.listen(3000, function () {
+      console.log("listening on 3000");
     });
   })
   .catch((err) => console.error(err));
