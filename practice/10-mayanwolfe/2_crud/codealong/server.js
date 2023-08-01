@@ -17,6 +17,14 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.use(bodyParser.urlencoded({ extended: true }));
 
     app.get("/", (req, res) => {
+      quotesCollection
+        .find()
+        .toArray()
+        .then((results) => {
+          console.log(results);
+        })
+        .catch((err) => console.error(err));
+      // console.log(cursor);
       res.sendFile(__dirname + "/index.html");
     });
 
