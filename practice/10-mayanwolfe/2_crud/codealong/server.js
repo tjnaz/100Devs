@@ -5,9 +5,6 @@ const MongoClient = require("mongodb").MongoClient;
 const connectionString =
   "mongodb+srv://vader:ueoa@star-wars-quotes.djydzot.mongodb.net/?retryWrites=true&w=majority";
 
-// const connectionString2 =
-//   "mongodb+srv://yoda:ueoa@star-war-quotes.ewmevsi.mongodb.net/?retryWrites=true&w=majority";
-
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
     console.log("Connected to DB");
@@ -36,7 +33,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       quotesCollection
         .insertOne(req.body)
         .then((result) => {
-          console.log(result);
+          // console.log(result);
           res.redirect("/");
         })
         .catch((error) => console.error(err));
