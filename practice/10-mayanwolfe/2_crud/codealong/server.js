@@ -36,7 +36,23 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     });
 
     app.put("/quotes", (req, res) => {
-      console.log(req.body);
+      quotesCollection
+        .findOneAndUpdate(
+          { name: "yoda" },
+          {
+            $set: {
+              name: req.body.name,
+              quote: req.body.quote,
+            },
+          },
+          {
+            upsert: true,
+          }
+        )
+        .then((result) => {
+          res.json("success");
+        })
+        .catch((err) => console.error(err));
     });
 
     app.listen(3000, function () {
