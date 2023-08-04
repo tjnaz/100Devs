@@ -31,10 +31,12 @@ deleteButton.addEventListener("click", (_) => {
       if (res.ok) return res.json();
     })
     .then((response) => {
-      if (response === "No Vader quote to delete") {
-        messageDiv.textContent = "No Vader quote to delete";
-      } else {
+      if (response !== "No quote") {
+        console.log("test");
         window.location.reload(true);
+      } else {
+        console.log("test failed");
+        messageDiv.textContent = "No Vader quote to delete";
       }
     });
 });
