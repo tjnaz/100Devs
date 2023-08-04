@@ -55,6 +55,18 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch((err) => console.error(err));
     });
 
+    app.delete("/quotes", (req, res) => {
+      quotesCollection
+        .deleteOne({ name: req.body.name })
+        .then((result) => {
+          if (result.deleteCount === 0) {
+            return res.json("No Vader quote to delete");
+          }
+          res.json(`Deleted Darth Vader's quote`);
+        })
+        .catch((err) => console.error(err));
+    });
+
     app.listen(3000, function () {
       console.log("listening on 3000");
     });
