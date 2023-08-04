@@ -24,7 +24,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .find()
         .toArray()
         .then((results) => {
-          console.log(results);
+          // console.log(results);
           res.render("index.ejs", { quotes: results });
         })
         .catch((err) => console.error(err));
@@ -40,6 +40,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           res.redirect("/");
         })
         .catch((error) => console.error(err));
+    });
+
+    app.put("/quotes", (req, res) => {
+      console.log(req.body);
     });
 
     app.listen(3000, function () {
