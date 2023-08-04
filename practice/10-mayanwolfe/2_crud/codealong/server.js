@@ -17,6 +17,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.set("view engine", "ejs");
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(express.static("public"));
+    app.use(bodyParser.json());
 
     app.get("/", (req, res) => {
       quotesCollection
