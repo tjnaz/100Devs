@@ -30,14 +30,17 @@ app.get("/", (req, res) => {
   res.send("<h1>Hello backend bi!</h1>");
 });
 
+// FETCHING ALL THE RESOURCES
+app.get("/api/notes", (req, res) => {
+  res.json(notes);
+});
+
+// FETCHING A SINGLE RESOURCE
 app.get("/api/notes/:id", (req, res) => {
   const id = Number(req.params.id);
-
   // console.log(id);
-
   // const note = notes.find((note) => note.id === Number(id));
   const note = notes.find((note) => note.id === id);
-
   // const note2 = notes.find((note) => {
   //   console.log(
   //     note.id,
@@ -47,9 +50,22 @@ app.get("/api/notes/:id", (req, res) => {
   //     note.id === Number(id)
   //   );
   // });
-
   // console.log(note);
-  res.json(note);
+  if (note) {
+    res.json(note);
+  } else {
+    res
+      .status(404)
+      .end((res.statusMessage = `The resource ${id} does not exist`));
+  }
+});
+
+// DELETING RESOURCES
+app.delete("/api/notes/:id", (req, res) => {
+  const id = Number(req.params.id);
+  notes = notes.filter((note) => note.id !== id);
+
+  res.status(204).end();
 });
 
 const PORT = 3001;
