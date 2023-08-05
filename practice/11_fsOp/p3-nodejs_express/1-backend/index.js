@@ -30,8 +30,10 @@ app.get("/", (req, res) => {
   res.send("<h1>Hello backend bi!</h1>");
 });
 
-app.get("/api/notes", (req, res) => {
-  res.json(notes);
+app.get("/api/notes/:id", (req, res) => {
+  const id = req.params.id;
+  const note = notes.find((note) => note.id === id);
+  res.json(note);
 });
 
 const PORT = 3001;
