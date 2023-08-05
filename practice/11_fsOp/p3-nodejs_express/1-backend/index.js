@@ -24,6 +24,11 @@ let notes = [
   },
 ];
 
+const generateId = () => {
+  const maxId = notes.length > 0 ? Math.max(...notes.map((n) => n.id)) : 0;
+  return maxId + 1;
+};
+
 // const app = http.createServer((req, res) => {
 //   res.writeHead(200, { "Content-Type": "application/json" });
 //   res.end(JSON.stringify(notes));
@@ -72,14 +77,13 @@ app.delete("/api/notes/:id", (req, res) => {
 
 // RECEIVING DATA
 app.post("/api/notes", (req, res) => {
-  const maxId = notes.length > 0 ? Math.max(...notes.map((n) => n.id)) : 0;
+  const body = req.body;
 
-  const note = req.body;
-  note.id = maxId + 1; // unique id for the new post
-
-  notes = notes.concat(note);
-
-  res.json(note);
+  if (!body.content) {
+    return res.status(400).json({
+      error: "content missing",
+    });
+  }
 });
 
 const PORT = 3001;
