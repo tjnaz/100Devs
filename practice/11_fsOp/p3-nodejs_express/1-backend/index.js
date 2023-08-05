@@ -3,6 +3,9 @@
 const express = require("express");
 const app = express();
 
+// ACTIVATE JSON PARSER
+app.use(express.json());
+
 let notes = [
   {
     id: 1,
@@ -64,9 +67,10 @@ app.get("/api/notes/:id", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
   const id = Number(req.params.id);
   notes = notes.filter((note) => note.id !== id);
-
   res.status(204).end();
 });
+
+// RECEIVING DATA
 
 const PORT = 3001;
 app.listen(PORT);
