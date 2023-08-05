@@ -84,6 +84,16 @@ app.post("/api/notes", (req, res) => {
       error: "content missing",
     });
   }
+
+  const note = {
+    content: body.content,
+    important: body.important || false,
+    id: generateId(),
+  };
+
+  notes = notes.concat();
+
+  res.json(note);
 });
 
 const PORT = 3001;
