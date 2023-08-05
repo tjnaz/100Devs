@@ -32,7 +32,9 @@ app.get("/", (req, res) => {
 
 app.get("/api/notes/:id", (req, res) => {
   const id = req.params.id;
+  console.log(id);
   const note = notes.find((note) => note.id === id);
+  console.log(note);
   res.json(note);
 });
 
