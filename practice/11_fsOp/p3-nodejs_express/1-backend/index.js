@@ -71,6 +71,16 @@ app.delete("/api/notes/:id", (req, res) => {
 });
 
 // RECEIVING DATA
+app.post("/api/notes", (req, res) => {
+  const maxId = notes.length > 0 ? Math.max(...notes.map((n) => n.id)) : 0;
+
+  const note = req.body;
+  note.id = maxId + 1;
+
+  notes = notes.concat(note);
+
+  res.json(note);
+});
 
 const PORT = 3001;
 app.listen(PORT);
