@@ -31,10 +31,24 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/notes/:id", (req, res) => {
-  const id = req.params.id;
-  console.log(id);
-  const note = notes.find((note) => note.id === Number(id));
-  console.log(note);
+  const id = Number(req.params.id);
+
+  // console.log(id);
+
+  // const note = notes.find((note) => note.id === Number(id));
+  const note = notes.find((note) => note.id === id);
+
+  // const note2 = notes.find((note) => {
+  //   console.log(
+  //     note.id,
+  //     typeof note.id,
+  //     id,
+  //     typeof Number(id),
+  //     note.id === Number(id)
+  //   );
+  // });
+
+  // console.log(note);
   res.json(note);
 });
 
