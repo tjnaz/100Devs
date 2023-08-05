@@ -27,7 +27,7 @@ let notes = [
 // });
 
 app.get("/", (req, res) => {
-  res.send("<h1>Hello world!</h1>");
+  res.send("<h1>Hello backend bi!</h1>");
 });
 
 app.get("/api/notes", (req, res) => {
