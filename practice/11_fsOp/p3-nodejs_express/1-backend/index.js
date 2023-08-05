@@ -75,7 +75,7 @@ app.post("/api/notes", (req, res) => {
   const maxId = notes.length > 0 ? Math.max(...notes.map((n) => n.id)) : 0;
 
   const note = req.body;
-  note.id = maxId + 1;
+  note.id = maxId + 1; // unique id for the new post
 
   notes = notes.concat(note);
 
