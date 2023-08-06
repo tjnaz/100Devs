@@ -78,22 +78,18 @@ app.delete("/api/notes/:id", (req, res) => {
 // RECEIVING DATA
 app.post("/api/notes", (req, res) => {
   const body = req.body;
-
   if (!body.content) {
     // calling the return is crucial otherwise the code will execute to the very end
     return res.status(400).json({
       error: "content missing",
     });
   }
-
   const note = {
     content: body.content,
     important: body.important || false,
     id: generateId(),
   };
-
   notes = notes.concat();
-
   res.json(note);
 });
 
