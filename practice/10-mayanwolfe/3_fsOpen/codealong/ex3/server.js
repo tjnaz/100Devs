@@ -58,5 +58,7 @@ app.delete("/api/persons/:id", (req, res) => {
   res.status(204).end();
 });
 
+console.log(persons.length)
+
 app.listen(PORT);
 console.log(`Server is running on PORT ${PORT}`);
