@@ -25,6 +25,8 @@ let persons = [
   },
 ];
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("<h1>Phonebook?</h1>");
 });
@@ -36,7 +38,7 @@ app.get("/api/persons", (req, res) => {
 app.get("/info", (req, res) => {
   const currentDate = new Date();
   res.send(
-    `<h2> Phonebook has info for <u><i>${persons.length}</i></u> people</h2><h2>${currentDate}</h2>`
+    `<h2> Phonebook has info for <u><i>${persons.length}</i></u> people</h2><h2>${currentDate}</h2>`,
   );
 });
 
@@ -57,8 +59,6 @@ app.delete("/api/persons/:id", (req, res) => {
   res.json(persons);
   res.status(204).end();
 });
-
-console.log(persons.length)
 
 app.listen(PORT);
 console.log(`Server is running on PORT ${PORT}`);
