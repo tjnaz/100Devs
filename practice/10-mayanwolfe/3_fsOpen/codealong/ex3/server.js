@@ -68,11 +68,11 @@ app.delete("/api/persons/:id", (req, res) => {
 app.post("/api/persons", (req, res) => {
   const body = req.body;
 
-  if (!body.content) {
-    return res.status(400).json({
-      error: "content missing",
-    });
-  }
+  // if (!body.content) {
+  //   return res.status(400).json({
+  //     error: "content missing",
+  //   });
+  // }
 
   let entry = {
     id: generateId(),
@@ -80,7 +80,7 @@ app.post("/api/persons", (req, res) => {
     number: body.number,
   };
 
-  persons = persons(entry);
+  persons = persons.concat(entry);
 
   res.json(entry);
 });
