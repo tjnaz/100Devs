@@ -26,7 +26,8 @@ let persons = [
 ];
 
 const generateId = () => {
-  const maxId = notes.length > 0 ? Math.max(...pesrons.map((n) => n.id)) : 0;
+  const maxId = persons.length > 0 ? Math.max(...persons.map((n) => n.id)) : 0;
+  return maxId + 1;
 };
 
 app.use(express.json());
