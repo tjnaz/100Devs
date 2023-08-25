@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 
 // ACTIVATE JSON PARSER
-app.use(express.json());
+app.use(express.json()); // middleware
 
 let notes = [
   {
@@ -55,7 +55,7 @@ app.get("/api/notes/:id", (req, res) => {
   } else {
     res
       .status(404)
-      .end((res.statusMessage = `The resource ${id} does not exist`));
+      .end(res.statusMessage = `The resource ${id} does not exist`);
   }
 });
 
@@ -83,6 +83,11 @@ app.post("/api/notes", (req, res) => {
   notes = notes.concat();
   res.json(note);
 });
+
+// ABOUT HTTP REQUEST TYPE
+// Safety & idempotency
+
+// MIDDLEWARE
 
 const PORT = 3001;
 app.listen(PORT);
