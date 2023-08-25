@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 
 // ACTIVATE JSON PARSER
+// It runs for all HTTP methods (GET, PUT, DELETE, HEAD, POST)
 app.use(express.json()); // middleware
 
 let notes = [
