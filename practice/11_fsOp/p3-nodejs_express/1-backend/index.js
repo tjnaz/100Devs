@@ -5,6 +5,7 @@ const app = express();
 
 // ACTIVATE JSON PARSER
 // It runs for all HTTP methods (GET, PUT, DELETE, HEAD, POST)
+// Whereas GET, PUT, DELETE, HEAD, AND POST methods get fired only for those requests
 app.use(express.json()); // middleware
 
 let notes = [
