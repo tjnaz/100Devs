@@ -25,6 +25,10 @@ let persons = [
   },
 ];
 
+const generateId = () => {
+  const maxId = notes.length > 0 ? Math.max(...pesrons.map((n) => n.id)) : 0;
+};
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -63,7 +67,7 @@ app.delete("/api/persons/:id", (req, res) => {
 app.post("/api/persons", (req, res) => {
   const body = req.body;
   let entry = {
-    id: generated,
+    id: generateId(),
     name: body.name,
     number: body.number,
   };
