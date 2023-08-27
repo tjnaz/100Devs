@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgna");
 const PORT = 3001;
 
 let persons = [
@@ -43,7 +44,7 @@ app.get("/api/persons", (req, res) => {
 app.get("/info", (req, res) => {
   const currentDate = new Date();
   res.send(
-    `<h2> Phonebook has info for <u><i>${persons.length}</i></u> people</h2><h2>${currentDate}</h2>`,
+    `<h2> Phonebook has info for <u><i>${persons.length}</i></u> people</h2><h2>${currentDate}</h2>`
   );
 });
 
