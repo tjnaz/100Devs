@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const morgan = require("morgna");
+const morgan = require("morgan");
 const PORT = 3001;
 
 let persons = [
