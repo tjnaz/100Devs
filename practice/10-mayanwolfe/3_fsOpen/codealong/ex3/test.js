@@ -1,4 +1,5 @@
 const fs = require("fs");
+// did this actually work ffs?
 
 function fib(n) {
   if (n < 2) {
